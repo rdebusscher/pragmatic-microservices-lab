@@ -17,7 +17,7 @@ import net.java.pathfinder.internal.GraphDao;
 @Path("/graph-traversal")
 public class GraphTraversalService {
 
-    private static final Logger logger
+    private static final Logger LOGGER
             = Logger.getLogger(GraphTraversalService.class.getCanonicalName());
 
     @Inject
@@ -28,7 +28,7 @@ public class GraphTraversalService {
 
     @GET
     @Path("/shortest-path")
-    @Produces({"application/json", "application/xml; qs=.75"})
+    @Produces("application/json")
     // TODO Add internationalized messages for constraints.
     public List<TransitPath> findShortestPath(
             @NotNull @Size(min = 5, max = 5) @QueryParam("origin") String originUnLocode,
@@ -78,7 +78,7 @@ public class GraphTraversalService {
             candidates.add(new TransitPath(transitEdges));
         }
 
-        logger.log(Level.INFO, "Path finder service called for {0} to {1}",
+        LOGGER.log(Level.INFO, "Path finder service called for {0} to {1}",
                 new Object[]{originUnLocode, destinationUnLocode});
 
         return candidates;
