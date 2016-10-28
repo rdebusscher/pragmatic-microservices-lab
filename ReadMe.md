@@ -28,15 +28,22 @@ Setup
 * Make sure you have JDK 8+ installed.
 * Please install NetBeans 8+. Make sure to download the Java EE edition.
 * Download GlassFish 4.1 from [here]
-(https://glassfish.java.net/download-archive.html). Make sure to download the full platform,
-not the web profile.
+(https://glassfish.java.net/download-archive.html). Make sure to download the 
+full platform, not the web profile.
 * Please unzip the zip file anywhere in your file system.
-* Start NetBeans. There are two separate Maven projects in the zip you downloaded - cargo-tracker
-and path-finder. They are both in their own  directories under the root directory. You need
-to open and build both projects in NetBeans.
+* NetBeans bundles an outdated version of NetBeans by default. WildFly Swarm 
+needs an updated version of Maven. Please download and install it. 
+* Start NetBeans. Point NetBeans to the updated Maven installation by going to
+NetBeans -> Preferences -> Java -> Maven -> Maven Home. 
 * You now need to setup GlassFish in NetBeans. You do that by going to Services -> Servers -> 
 Add Server -> GlassFish Server. Enter the location of the GlassFish directory. Choose the defaults
 in the next few screens to register GlassFish with NetBeans.
+
+Instructions
+------------
+* There are two separate Maven projects in the zip you downloaded - cargo-tracker
+and path-finder. They are both in their own  directories under the root directory. You need
+to open and build both projects in NetBeans.
 * You will need to specify that both projects will run with GlassFish. You do that by going to 
 Project -> Properties -> Run -> Server and choosing GlassFish.
 * When ready, you will first run the path-finder application (Project -> Run). Wait for the project to
