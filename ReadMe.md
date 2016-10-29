@@ -56,9 +56,10 @@ directory to get the application running.
 routing service can be separated into a separate REST service. We will call this
 separate service the path-finder application. In microservices parlance, Path 
 Finder can be considered a microservice. We will develop path-finder as a 
-separate Maven war project using JAX-RS, EJB and CDI. The Cargo Tracker 
-application will use the JAX-RS client API to access the Path Finder application.
-Cargo Tracker and Path Finder can be deployed to the same GlassFish instance.
+separate Maven war project using JAX-RS, EJB, CDI and Bean Validation. The 
+Cargo Tracker application will use the JAX-RS client API to access the 
+Path Finder application. Cargo Tracker and Path Finder can be deployed to the 
+same GlassFish instance or different GlassFish instances.
 * The [javaee-microservices](javaee-microservices/) directory has a possible 
 solution for breaking up the Cargo Tracker application into simple, practical 
 vanilla Java EE based microservices. You should follow the instructions in the 
