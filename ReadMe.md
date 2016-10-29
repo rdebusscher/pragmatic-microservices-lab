@@ -55,7 +55,8 @@ GlassFish with NetBeans.
 Instructions
 ------------
 There are three distinct sections of the lab separated into separate directories
-of the zip - [monolith], [javaee-microservice] and [swarm-microservices].
+of the zip - (monolith)[monolith/], (javaee-microservices)[javaee-microservices/] 
+and (swarm-microservices)[swarm-microservices/].
 
 * There are two separate Maven projects in the zip you downloaded - cargo-tracker
 and path-finder. They are both in their own  directories under the root directory. You need
