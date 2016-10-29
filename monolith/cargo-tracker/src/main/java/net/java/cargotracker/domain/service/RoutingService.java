@@ -21,7 +21,7 @@ import net.java.cargotracker.domain.model.voyage.VoyageRepository;
 public class RoutingService {
 
     // TODO Use injection instead?
-    private static final Logger LOG = Logger.getLogger(RoutingService.class.getName());
+    private static final Logger LOGGER = Logger.getLogger(RoutingService.class.getName());
 
     private static final long ONE_MIN_MS = 1000 * 60;
     private static final long ONE_DAY_MS = ONE_MIN_MS * 60 * 24;
@@ -95,12 +95,12 @@ public class RoutingService {
             if (routeSpecification.isSatisfiedBy(itinerary)) {
                 itineraries.add(itinerary);
             } else {
-                LOG.log(Level.FINE,
+                LOGGER.log(Level.FINE,
                         "Received itinerary that did not satisfy the route specification");
             }
         }
 
-        LOG.log(Level.INFO, "Path finder service called for {0} to {1}",
+        LOGGER.log(Level.INFO, "Path finder service called for {0} to {1}",
                 new Object[]{routeSpecification.getOrigin(),
                     routeSpecification.getDestination()});
 

@@ -14,16 +14,6 @@ video for the talk can be found [here](https://www.youtube.com/watch?v=bS6zKgMb8
 The code is derived from the [Cargo Tracker](https://cargotracker.java.net/)
 Java EE blue prints project. 
 
-
-
-
-Although logically two separate applications that 
-project is deliberately structured as a single war for simplicity. This project
-breaks the code up into two separate wars. The larger war represents the Cargo Tracker
-application. In microservices parlance the Cargo Tracker application is a so
-called monolith. The smaller war file represents the Path Finder microservice. Cargo
-Tracker uses the smaller Path Finder service.
-
 This lab uses GlassFish 4.1. It should be possible to use any Java EE 7 
 compatible application server such as Payara, WildFly, JBoss EAP, 
 WebSphere Liberty or WebLogic. We use WildFly Swarm as our fat-jar solution. It
@@ -54,9 +44,14 @@ GlassFish with NetBeans.
 
 Instructions
 ------------
-There are three distinct sections of the lab separated into separate directories
+* There are three distinct sections of the lab separated into separate directories
 of the zip - [monolith](monolith/), [javaee-microservices](javaee-microservices/) 
-and [swarm-microservices](swarm-microservices/).
+and [swarm-microservices](swarm-microservices/). We will explore each in turn.
+* After discussing the basic concepts behind microservices, we will explore the
+code under [monolith](monolith/). The directory contains a single vanilla 
+Java EE application named Cargo Tracker. In microservices parlance, the 
+application can be considered a monolith. Please follow the instructions in the 
+directory to get the application running.
 
 * There are two separate Maven projects in the zip you downloaded - cargo-tracker
 and path-finder. They are both in their own  directories under the root directory. You need
