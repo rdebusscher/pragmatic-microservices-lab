@@ -52,6 +52,18 @@ code under [monolith](monolith/). The directory contains a single vanilla
 Java EE application named Cargo Tracker. In microservices parlance, the 
 application can be considered a monolith. Please follow the instructions in the 
 directory to get the application running.
+* Having explored the Cargo Tracker Java EE application, we will discuss how the 
+routing service can be separated into a separate REST service. We will call this
+separate service the path-finder application. In microservices parlance, Path 
+Finder can be considered a microservice. We will develop path-finder as a 
+separate Maven war project using JAX-RS, EJB and CDI. The Cargo Tracker 
+application will use the JAX-RS client API to access the Path Finder application.
+Cargo Tracker and Path Finder can be deployed to the same GlassFish instance.
+* The [javaee-microservices](javaee-microservices/) directory has a possible 
+solution for breaking up the Cargo Tracker application into simple, practical 
+vanilla Java EE based microservices. You should follow the instructions in the 
+directory to get the solution running and explore it. We will discuss this 
+solution in detail.
 
 * There are two separate Maven projects in the zip you downloaded - cargo-tracker
 and path-finder. They are both in their own  directories under the root directory. You need
