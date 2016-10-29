@@ -50,8 +50,6 @@ public class ExternalRoutingService implements RoutingService {
     @PostConstruct
     public void init() {
         graphTraversalResource = jaxrsClient.target(graphTraversalUrl);
-        graphTraversalResource.register(new MoxyJsonFeature()).register(
-                new JsonMoxyConfigurationContextResolver());
     }
 
     @Override
@@ -65,7 +63,7 @@ public class ExternalRoutingService implements RoutingService {
         List<TransitPath> transitPaths = graphTraversalResource
                 .queryParam("origin", origin)
                 .queryParam("destination", destination)
-                .request(MediaType.APPLICATION_JSON_TYPE)
+                .request(MediaType.APPLICATION_XML)
                 .get(new GenericType<List<TransitPath>>() {
                 });
 
