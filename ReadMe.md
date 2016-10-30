@@ -65,22 +65,13 @@ solution for breaking up the Cargo Tracker application into simple, practical
 vanilla Java EE based microservices. You should follow the instructions in the 
 directory to get the solution running and explore it. We will discuss this 
 solution in detail.
-
-* There are two separate Maven projects in the zip you downloaded - cargo-tracker
-and path-finder. They are both in their own  directories under the root directory. You need
-to open and build both projects in NetBeans.
-* You will need to specify that both projects will run with GlassFish. You do that by going to 
-Project -> Properties -> Run -> Server and choosing GlassFish.
-* When ready, you will first run the path-finder application (Project -> Run). Wait for the project to
-deploy and run. Then you will similarly run the Cargo Tracker application. In both cases, NetBeans
-should automatically open a browser window with the running application.
-* You need to book and route a cargo. Please take a look at the video for the talk on how to do this or
-look through the readme of the original Cargo Tracker application. The Path Finder service is used for
-routing by Cargo Tracker.
-* In this demo both Cargo Tracker and Path Finder run on the same GlassFish domain. If you want you can 
-run the two wars on two different servers or two different GlassFish domains. 
-Just make the appropriate changes in [ejb-jar.xml for Cargo Tracker]
-(cargo-tracker/src/main/webapp/WEB-INF/ejb-jar.xml) to point it to the location of the Path Finder
-service. Most servers will also allow you to change the JNDI entry value at runtime through
-GUI administrative tools without any changes to the war. You can also use load balancers and DNS
-with the two applications if you like to add greater flexibility or fault tolerance.
+* Having discussed how we can develop simple microservices using vanilla Java EE
+war files, we are ready to introduce WildFly Swarm as a fat jar solution. 
+Introducing WildFly Swarm also enables us to add other features besides fat jars
+such as dynamic discovery, health-check, circuit-breakers/bulkheads and 
+client-side load-balancing. After discussing these concepts, we will convert 
+path-finder from a war file to a self-contained fat-jar.
+ * The [swarm-microservices](swarm-microservices/) directory has a possible 
+solution for converting path-finder into a WildFly Swarm based fat jar.
+You should follow the instructions in the directory to get the solution running 
+and explore it. We will discuss this solution in detail.

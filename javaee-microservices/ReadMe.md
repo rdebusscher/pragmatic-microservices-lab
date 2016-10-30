@@ -29,12 +29,15 @@ Setup
 full platform, not the web profile. Please do not use GlassFish 4.1.1 - it 
 has bugs that will stop the application from working properly.
 * Please unzip the zip file anywhere in your file system.
-* Start NetBeans. There are two separate Maven projects in the directory - 
-cargo-tracker and path-finder. You need to open and build both projects in NetBeans.
-* You now need to setup GlassFish in NetBeans. You do that by going to 
+* Start NetBeans. You need to setup GlassFish in NetBeans. You do that by going to 
 Services -> Servers -> Add Server -> GlassFish Server. Enter the location of 
 the GlassFish directory. Choose the defaults in the next few screens to register 
 GlassFish with NetBeans.
+
+Instructions
+------------
+* There are two separate Maven projects in the directory - 
+cargo-tracker and path-finder. You need to open and build both projects in NetBeans.
 * You will need to specify that both projects will run with GlassFish. You do 
 that by going to Project -> Properties -> Run -> Server and choosing GlassFish.
 * When ready, you will first run the path-finder application (Project -> Run). 

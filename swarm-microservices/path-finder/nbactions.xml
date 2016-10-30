@@ -2,7 +2,7 @@
 <actions>
     <action>
         <actionName>CUSTOM-Run WildFly Swarm</actionName>
-        <displayName>Run WildFly Swarm</displayName>
+        <displayName>Run with WildFly Swarm</displayName>
         <goals>
             <goal>wildfly-swarm:run</goal>
         </goals>
