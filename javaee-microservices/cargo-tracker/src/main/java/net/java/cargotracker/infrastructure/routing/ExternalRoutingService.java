@@ -34,8 +34,8 @@ import org.glassfish.jersey.moxy.json.MoxyJsonFeature;
 public class ExternalRoutingService implements RoutingService {
 
     @Resource(name = "graphTraversalUrl")
-    private String graphTraversalUrl;    
-    
+    private String graphTraversalUrl;
+
     // TODO Can I use injection?
     private final Client jaxrsClient = ClientBuilder.newClient();
     private WebTarget graphTraversalResource;
@@ -44,7 +44,7 @@ public class ExternalRoutingService implements RoutingService {
     @Inject
     private VoyageRepository voyageRepository;
     // TODO Use injection instead?
-    private static final Logger log = Logger.getLogger(
+    private static final Logger LOGGER = Logger.getLogger(
             ExternalRoutingService.class.getName());
 
     @PostConstruct
@@ -78,7 +78,7 @@ public class ExternalRoutingService implements RoutingService {
             if (routeSpecification.isSatisfiedBy(itinerary)) {
                 itineraries.add(itinerary);
             } else {
-                log.log(Level.FINE,
+                LOGGER.log(Level.FINE,
                         "Received itinerary that did not satisfy the route specification");
             }
         }
