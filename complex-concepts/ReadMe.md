@@ -1,7 +1,8 @@
-Java EE Microservices using WildFly Swarm
-=========================================
-This code demonstrates developing fat-jar based microservices using Java EE and
-WildFly Swarm.
+Complex Microservices Concepts
+==============================
+This code demonstrates developing advanced/complex microservices including 
+far jars, dynamic discovery, containerized deployments as well as cloud 
+deployments using Java EE, WildFly Swarm, Docker and AWS.
 
 Part of this code is used as a demo for 
 [this] (http://www.slideshare.net/reza_rahman/javaee-microservices) talk. A
