@@ -13,6 +13,7 @@ import javax.ws.rs.client.ClientBuilder;
 import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.GenericType;
 import javax.ws.rs.core.MediaType;
+import net.java.cargotracker.application.util.JacksonConfigurationContextResolver;
 import net.java.cargotracker.domain.model.cargo.Itinerary;
 import net.java.cargotracker.domain.model.cargo.Leg;
 import net.java.cargotracker.domain.model.cargo.RouteSpecification;
@@ -21,6 +22,7 @@ import net.java.cargotracker.domain.model.location.UnLocode;
 import net.java.cargotracker.domain.model.voyage.VoyageNumber;
 import net.java.cargotracker.domain.model.voyage.VoyageRepository;
 import net.java.cargotracker.domain.service.RoutingService;
+import org.glassfish.jersey.jackson.JacksonFeature;
 
 /**
  * Our end of the routing service. This is basically a data model translation
@@ -31,9 +33,13 @@ import net.java.cargotracker.domain.service.RoutingService;
 @Stateless
 public class ExternalRoutingService implements RoutingService {
 
+    // TODO Use injection instead?
+    private static final Logger LOGGER = Logger.getLogger(
+            ExternalRoutingService.class.getName());
+
     @Resource(name = "graphTraversalUrl")
-    private String graphTraversalUrl;    
-    
+    private String graphTraversalUrl;
+
     // TODO Can I use injection?
     private final Client jaxrsClient = ClientBuilder.newClient();
     private WebTarget graphTraversalResource;
@@ -41,13 +47,12 @@ public class ExternalRoutingService implements RoutingService {
     private LocationRepository locationRepository;
     @Inject
     private VoyageRepository voyageRepository;
-    // TODO Use injection instead?
-    private static final Logger log = Logger.getLogger(
-            ExternalRoutingService.class.getName());
 
     @PostConstruct
     public void init() {
         graphTraversalResource = jaxrsClient.target(graphTraversalUrl);
+        graphTraversalResource.register(JacksonConfigurationContextResolver.class);
+        graphTraversalResource.register(JacksonFeature.class);
     }
 
     @Override
@@ -61,7 +66,7 @@ public class ExternalRoutingService implements RoutingService {
         List<TransitPath> transitPaths = graphTraversalResource
                 .queryParam("origin", origin)
                 .queryParam("destination", destination)
-                .request(MediaType.APPLICATION_XML)
+                .request(MediaType.APPLICATION_JSON)
                 .get(new GenericType<List<TransitPath>>() {
                 });
 
@@ -74,7 +79,7 @@ public class ExternalRoutingService implements RoutingService {
             if (routeSpecification.isSatisfiedBy(itinerary)) {
                 itineraries.add(itinerary);
             } else {
-                log.log(Level.FINE,
+                LOGGER.log(Level.FINE,
                         "Received itinerary that did not satisfy the route specification");
             }
         }
