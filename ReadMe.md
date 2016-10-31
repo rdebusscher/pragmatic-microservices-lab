@@ -71,7 +71,7 @@ Introducing WildFly Swarm also enables us to add other features besides fat jars
 such as dynamic discovery, health-check, circuit-breakers/bulkheads and 
 client-side load-balancing. After discussing these concepts, we will convert 
 path-finder from a war file to a self-contained fat-jar.
- * The [swarm-microservices](swarm-microservices/) directory has a possible 
+* The [swarm-microservices](swarm-microservices/) directory has a possible 
 solution for converting path-finder into a WildFly Swarm based fat jar.
 You should follow the instructions in the directory to get the solution running 
 and explore it. We will discuss this solution in detail.
