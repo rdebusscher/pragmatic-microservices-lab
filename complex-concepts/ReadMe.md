@@ -76,5 +76,5 @@ original Cargo Tracker application. The Path Finder service is used for
 routing by Cargo Tracker.
 * The Path Finder microservice is equipped with some basic health check 
 facilities using the WildFly Swarm monitor fragment. You can check them out by
-navigating to http://localhost:8888/node, http://localhost:8888/heap and 
-http://localhost:8888/threads.
+navigating to <http://localhost:8888/node>, <http://localhost:8888/heap> and 
+<http://localhost:8888/threads>.
