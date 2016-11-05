@@ -1,7 +1,7 @@
 Complex Microservices Concepts
 ==============================
 This code demonstrates developing advanced/complex microservices including 
-far jars, dynamic discovery, containerized deployments as well as cloud 
+far jars, health, dynamic discovery, containerized deployments as well as cloud 
 deployments using Java EE, WildFly Swarm, Docker and AWS.
 
 Part of this code is used as a demo for 
@@ -65,3 +65,7 @@ running application.
 Cargo Tracker application on how to do this or look through the readme of the 
 original Cargo Tracker application. The Path Finder service is used for
 routing by Cargo Tracker.
+* The Path Finder microservice is equipped with some basic health check 
+facilities using the WildFly Swarm monitor fragment. You can check them out by
+navigating to http://localhost:8888/node, http://localhost:8888/heap and 
+http://localhost:8888/threads.
