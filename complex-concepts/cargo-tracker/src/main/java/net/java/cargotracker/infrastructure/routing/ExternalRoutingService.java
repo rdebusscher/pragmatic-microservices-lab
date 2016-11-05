@@ -50,6 +50,11 @@ public class ExternalRoutingService implements RoutingService {
 
     @PostConstruct
     public void init() {
+        // Consul consul = Consul.builder().build();
+        // HealthClient healthClient = consul.healthClient();
+
+        // System.out.println("path-finder=" + healthClient.getHealthyServiceInstances("path-finder").getResponse().get(0).getService().getPort());
+
         graphTraversalResource = jaxrsClient.target(graphTraversalUrl);
         graphTraversalResource.register(JacksonConfigurationContextResolver.class);
         graphTraversalResource.register(JacksonFeature.class);

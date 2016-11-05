@@ -75,6 +75,15 @@
             <artifactId>all-themes</artifactId>
             <version>1.0.10</version>
         </dependency>
+        
+        <!-- Microservices -->
+        <!--
+        <dependency>
+            <groupId>com.orbitz.consul</groupId>
+            <artifactId>consul-client</artifactId>
+            <version>0.13.3</version>
+        </dependency>
+        -->
     </dependencies>
 
     <build>

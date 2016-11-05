@@ -42,15 +42,14 @@ NetBeans -> Preferences -> Java -> Maven -> Maven Home.
 Services -> Servers -> Add Server -> GlassFish Server. Enter the location of 
 the GlassFish directory. Choose the defaults in the next few screens to register 
 GlassFish with NetBeans.
-* We use Consul for service registration. 
-[Download Consul] (https://www.consul.io/downloads.html) for your OS, including 
-the web UI, which is a separate artifact.
+* We use Consul for service registration.
+[Download Consul] (https://www.consul.io/downloads.html) and set up for your OS.
 
 Instructions
 ------------
 * You must start Consul from where you installed it:
 ```
-./consul agent --ui-dir=<WHERE_YOU_DOWNLOADED_CONSUL_UI> --data-dir=/tmp/consul -bind 127.0.0.1 -server -bootstrap
+consul agent -dev
 ```
 * Please verify that Consul is running by going to <http://localhost:8500/ui/>. 
 There won't be much to see right now.
