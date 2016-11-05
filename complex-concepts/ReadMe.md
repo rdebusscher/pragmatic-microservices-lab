@@ -51,8 +51,9 @@ Instructions
 ```
 consul agent -dev
 ```
-* Please verify that Consul is running by going to <http://localhost:8500/ui/>. 
-There won't be much to see right now.
+* Please verify that Consul is running by going to <http://localhost:8500/>. 
+There won't be much to see right now. As the microservice comes up, you'll see
+it show up here. 
 * There are two separate Maven projects in the directory - cargo-tracker and 
 path-finder. You need to open and build both projects in NetBeans.
 * You first need to run the path-finder microservice. You can run it through 
