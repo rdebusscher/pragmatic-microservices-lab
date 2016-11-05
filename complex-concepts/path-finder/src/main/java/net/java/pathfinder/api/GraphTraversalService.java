@@ -12,9 +12,11 @@ import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
 import net.java.pathfinder.internal.GraphDao;
+import org.wildfly.swarm.topology.Advertise;
 
 @Stateless
 @Path("/graph-traversal")
+@Advertise("path-finder")
 public class GraphTraversalService {
 
     private static final Logger LOGGER

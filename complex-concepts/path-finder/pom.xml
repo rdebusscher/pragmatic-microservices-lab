@@ -71,12 +71,10 @@
             <groupId>org.wildfly.swarm</groupId>
             <artifactId>monitor</artifactId>
         </dependency>
-        <!--
         <dependency>
             <groupId>org.wildfly.swarm</groupId>
             <artifactId>topology-consul</artifactId>
         </dependency>
-        -->
     </dependencies>
 
     <build>
@@ -88,7 +86,7 @@
                 <configuration>
                     <properties>
                         <swarm.http.port>8888</swarm.http.port>
-                        <!-- <swarm.consul.url>http://localhost:8500/</swarm.consul.url> -->
+                        <swarm.consul.url>http://localhost:8500/</swarm.consul.url>
                     </properties>
                 </configuration>
                 <executions>
