@@ -52,7 +52,7 @@ Instructions
 ```
 ./consul agent --ui-dir=<WHERE_YOU_DOWNLOADED_CONSUL_UI> --data-dir=/tmp/consul -bind 127.0.0.1 -server -bootstrap
 ```
-Please verify that Consul is running by going to http://localhost:8500/ui/. 
+* Please verify that Consul is running by going to http://localhost:8500/ui/. 
 There won't be much to see right now.
 * There are two separate Maven projects in the directory - cargo-tracker and 
 path-finder. You need to open and build both projects in NetBeans.
