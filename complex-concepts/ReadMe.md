@@ -43,11 +43,12 @@ Services -> Servers -> Add Server -> GlassFish Server. Enter the location of
 the GlassFish directory. Choose the defaults in the next few screens to register 
 GlassFish with NetBeans.
 * We use Consul for service registration.
-[Download Consul] (https://www.consul.io/downloads.html) and set up for your OS.
+[Download and install Consul] (https://www.consul.io/intro/getting-started/install.html) 
+for your OS.
 
 Instructions
 ------------
-* You must start Consul from where you installed it:
+* You must start Consul:
 ```
 consul agent -dev
 ```
@@ -76,5 +77,5 @@ original Cargo Tracker application. The Path Finder service is used for
 routing by Cargo Tracker.
 * The Path Finder microservice is equipped with some basic health check 
 facilities using the WildFly Swarm monitor fragment. You can check them out by
-navigating to <http://localhost:8888/node>, <http://localhost:8888/heap> and 
-<http://localhost:8888/threads>.
+navigating to <http://localhost:8888/node>, <http://localhost:8888/heap>, 
+<http://localhost:8888/threads> and <http://localhost:8888/health>.
