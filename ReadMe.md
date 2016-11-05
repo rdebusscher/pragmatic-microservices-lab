@@ -78,3 +78,9 @@ and explore it. We will discuss this solution in detail.
 * The [complex-concepts](complex-concepts/) directory contains some examples of 
 more advanced concepts such as health-check, dynamic discovery, containers 
 and cloud deployment. We will discuss these concepts as time permits.
+
+To Do
+-----
+* Use Docker.
+* Use AWS.
+* Move from GlassFish to WildFly.
