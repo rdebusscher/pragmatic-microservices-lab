@@ -8,6 +8,7 @@ import javax.annotation.PostConstruct;
 import javax.annotation.Resource;
 import javax.ejb.Stateless;
 import javax.inject.Inject;
+import javax.json.JsonArray;
 import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientBuilder;
 import javax.ws.rs.client.WebTarget;
@@ -37,8 +38,8 @@ public class ExternalRoutingService implements RoutingService {
     private static final Logger LOGGER = Logger.getLogger(
             ExternalRoutingService.class.getName());
 
-    @Resource(name = "graphTraversalUrl")
-    private String graphTraversalUrl;
+    @Resource(name = "pathFinderDiscoveryUrl")
+    private String pathFinderDiscoveryUrl;
 
     // TODO Can I use injection?
     private final Client jaxrsClient = ClientBuilder.newClient();
@@ -50,12 +51,15 @@ public class ExternalRoutingService implements RoutingService {
 
     @PostConstruct
     public void init() {
-        // Consul consul = Consul.builder().build();
-        // HealthClient healthClient = consul.healthClient();
+        WebTarget pathFinderDiscoveryResource = jaxrsClient.target(pathFinderDiscoveryUrl);
 
-        // System.out.println("path-finder=" + healthClient.getHealthyServiceInstances("path-finder").getResponse().get(0).getService().getPort());
+        JsonArray discoveryData = pathFinderDiscoveryResource
+                .request(MediaType.APPLICATION_JSON).get(JsonArray.class);
+        String address = discoveryData.getJsonObject(0).getString("ServiceAddress");
+        int port = discoveryData.getJsonObject(0).getInt("ServicePort");
 
-        graphTraversalResource = jaxrsClient.target(graphTraversalUrl);
+        graphTraversalResource = jaxrsClient.target(
+                "http://" + address + ":" + port + "/rest/graph-traversal/shortest-path");
         graphTraversalResource.register(JacksonConfigurationContextResolver.class);
         graphTraversalResource.register(JacksonFeature.class);
     }

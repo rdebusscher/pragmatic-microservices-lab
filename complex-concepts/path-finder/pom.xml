@@ -85,6 +85,7 @@
                 <version>${version.wildfly.swarm}</version>
                 <configuration>
                     <properties>
+                        <swarm.bind.address>127.0.0.1</swarm.bind.address>
                         <swarm.http.port>8888</swarm.http.port>
                         <swarm.consul.url>http://localhost:8500/</swarm.consul.url>
                     </properties>

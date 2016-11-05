@@ -11,9 +11,9 @@
         <session>
             <ejb-name>ExternalRoutingService</ejb-name>
             <env-entry>
-                <env-entry-name>graphTraversalUrl</env-entry-name>
+                <env-entry-name>pathFinderDiscoveryUrl</env-entry-name>
                 <env-entry-type>java.lang.String</env-entry-type>
-                <env-entry-value>http://localhost:8888/rest/graph-traversal/shortest-path</env-entry-value>
+                <env-entry-value>http://localhost:8500/v1/catalog/service/path-finder</env-entry-value>
             </env-entry>
         </session>
     </enterprise-beans>
