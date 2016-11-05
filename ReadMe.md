@@ -75,3 +75,6 @@ path-finder from a war file to a self-contained fat-jar.
 solution for converting path-finder into a WildFly Swarm based fat jar.
 You should follow the instructions in the directory to get the solution running 
 and explore it. We will discuss this solution in detail.
+* The [complex-concepts](complex-concepts/) directory contains some examples of 
+more advanced concepts such as health-check, dynamic discovery, containers 
+and cloud deployment. We will discuss these concepts as time permits.
