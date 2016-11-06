@@ -79,3 +79,15 @@ routing by Cargo Tracker.
 facilities using the WildFly Swarm monitor fragment. You can check them out by
 navigating to <http://localhost:8888/node>, <http://localhost:8888/heap>, 
 <http://localhost:8888/threads> and <http://localhost:8888/health>.
+
+Docker Instructions
+-------------------
+We will run all our code with Docker. Docker is common in microservices and 
+cloud deployments.
+
+* [Install docker](https://docs.docker.com/engine/installation/) on your OS.
+* Run Consul using Docker: 
+```
+docker run -p 8500:8500/tcp consul
+```
+* Verify that Consul is running by going to <http://localhost:8500/>.
