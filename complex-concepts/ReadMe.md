@@ -85,7 +85,7 @@ Docker Instructions
 We will run all our code with Docker. Docker is common in microservices and 
 cloud deployments.
 
-* [Install docker](https://docs.docker.com/engine/installation/) on your OS.
+* [Install Docker](https://docs.docker.com/engine/installation/) on your OS.
 * Run Consul using Docker: 
 ```
 docker run -p 8500:8500/tcp consul
