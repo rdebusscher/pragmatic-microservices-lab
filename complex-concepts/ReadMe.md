@@ -88,6 +88,6 @@ cloud deployments.
 * [Install Docker](https://docs.docker.com/engine/installation/) on your OS.
 * Run Consul using Docker: 
 ```
-docker run -p 8500:8500/tcp consul
+docker run -rm -p 8500:8500/tcp consul
 ```
 * Verify that Consul is running by going to <http://localhost:8500/>.
