@@ -82,8 +82,8 @@ navigating to <http://localhost:8888/node>, <http://localhost:8888/heap>,
 
 Docker Instructions
 -------------------
-We will run all our code with Docker. Docker is common in DevOps, microservices 
-and cloud deployments as a lightweight alternative to traditional 
+We can also run all our code with Docker. Docker is common in DevOps, 
+microservices and cloud deployments as a lightweight alternative to traditional 
 virtualization.
 
 * [Install Docker](https://docs.docker.com/engine/installation/) on your OS.
@@ -93,23 +93,26 @@ virtualization.
 docker run -it --rm -p 8500:8500 consul
 ```
 * Verify that Consul is running by going to <http://localhost:8500/>.
-* Because Docker containers are run in virtual networks isolated from the 
-host machine, we will no longer be able to use 'localhost' or 127.0.0.1 
-reliably. We will need to change over IP address references because of this 
-fact. Fortunately in the current version of Docker, we can use 172.17.0.1 as a 
-rough equivalent to 127.0.0.1 to refer to the host machine.
+* Docker containers are run in a virtual network isolated from the host machine
+using NAT. The Docker engine/host serves as the NAT gateway and is assigned the IP
+172.17.0.1. Each additional container started is assigned an IP in the sequence
+172.17.0.2, 172.17.0.3, 172.17.0.4 and so on. As a result, we can actually 
+simulate the situation where Consul, Path Finder and Cargo Tracker are running 
+on separate machines. If we start containers in the order suggested here, 
+Consul will have the IP 172.17.0.2, Path Finder will have the IP 172.17.0.3 and
+Cargo Tracker will have the IP 172.17.0.4. We will change over our IP address 
+references accordingly because of this fact.
 * We will need to make a couple of changes to the 
 [POM file for Path Finder](path-finder/pom.xml). The swarm.bind.address property
 will need to refer to the IP of the container that Path Finder will be running 
-on. On Mac OS, it is convenient to simply change this to 0.0.0.0. We should 
-also change swarm.consul.url to 172.17.0.1 from localhost.
+on - 172.17.0.3. We also need to change swarm.consul.url to 172.17.0.2 from 
+localhost.
 * The [Cargo Tracker EJB-JAR XML](cargo-tracker/src/main/webapp/WEB-INF/ejb-jar.xml) 
 will need similar changes. Change over the pathFinderDiscoveryUrl value to
-172.17.0.1 from localhost. The [External Routing Service](cargo-tracker/src/main/java/net/java/cargotracker/infrastructure/routing/ExternalRoutingService.java)
-'address' variable should also be hard-coded to 172.17.0.1.
+172.17.0.2 from localhost.
 * In NetBeans, both Cargo Tracker and Path Finder should now be rebuilt 
-(Project -> Clean and Build).
-* Please copy over path-finder-1.0-swarm.jar from the Maven Target directory to
+(Project -> Clean and Build) before proceeding further.
+* Please copy over path-finder-1.0-swarm.jar from the Maven target directory to
 the project's [path-finder/src/docker/](path-finder/src/docker/) directory.
 * Open up the terminal and change directories to [path-finder/src/docker/](path-finder/src/docker/).
 * We will now build a Docker image for Path Finder using:
@@ -121,7 +124,7 @@ docker build -t path-finder .
 docker run -it --rm -p 8888:8888 path-finder
 ```
 * Make sure Path Finder is running by navigating to <http://localhost:8888/health>.
-* Please copy over cargo-tracker.war from the Maven Target directory to
+* Please copy over cargo-tracker.war from the Maven target directory to
 the project's [cargo-tracker/src/docker/](cargo-tracker/src/docker/) directory.
 * Open up the terminal and change directories to [cargo-tracker/src/docker/](cargo-tracker/src/docker/).
 * We will now build a Docker image for Cargo Tracker using:
@@ -132,4 +135,5 @@ docker build -t cargo-tracker .
 ```
 docker run -it --rm -p 8080:8080 cargo-tracker
 ```
-* Make sure Cargo Tracker is running by navigating to <http://localhost:8080/cargo-tracker>.
+* Make sure Cargo Tracker is running by navigating to 
+<http://localhost:8080/cargo-tracker> and routing a cargo.
