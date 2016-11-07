@@ -107,7 +107,7 @@ also change swarm.consul.url to 172.17.0.1 from localhost.
 will need similar changes. Change over the pathFinderDiscoveryUrl value to
 172.17.0.1 from localhost. The [External Routing Service](cargo-tracker/src/main/java/net/java/cargotracker/infrastructure/routing/ExternalRoutingService.java)
 'address' variable should also be hard-coded to 172.17.0.1.
-* In NetBeans, both Cargo Tracker and Path Finder should not be rebuilt 
+* In NetBeans, both Cargo Tracker and Path Finder should now be rebuilt 
 (Project -> Clean and Build).
 * Please copy over path-finder-1.0-swarm.jar from the Maven Target directory to
 the project's [path-finder/src/docker/](path-finder/src/docker/) directory.
