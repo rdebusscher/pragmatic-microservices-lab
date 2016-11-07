@@ -56,6 +56,7 @@ public class ExternalRoutingService implements RoutingService {
         JsonArray discoveryData = pathFinderDiscoveryResource
                 .request(MediaType.APPLICATION_JSON).get(JsonArray.class);
         String address = discoveryData.getJsonObject(0).getString("ServiceAddress");
+        // String address = "172.17.0.1";
         int port = discoveryData.getJsonObject(0).getInt("ServicePort");
 
         graphTraversalResource = jaxrsClient.target(
