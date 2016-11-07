@@ -81,6 +81,5 @@ and cloud deployment. We will discuss these concepts as time permits.
 
 To Do
 -----
-* Use Docker.
 * Use AWS.
 * Move from GlassFish to WildFly.

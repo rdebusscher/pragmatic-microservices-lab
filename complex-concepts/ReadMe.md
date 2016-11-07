@@ -82,12 +82,54 @@ navigating to <http://localhost:8888/node>, <http://localhost:8888/heap>,
 
 Docker Instructions
 -------------------
-We will run all our code with Docker. Docker is common in microservices and 
-cloud deployments.
+We will run all our code with Docker. Docker is common in DevOps, microservices 
+and cloud deployments as a lightweight alternative to traditional 
+virtualization.
 
 * [Install Docker](https://docs.docker.com/engine/installation/) on your OS.
+* Please make sure Docker is running.
 * Run Consul using Docker: 
 ```
-docker run -it --rm -p 8500:8500/tcp consul
+docker run -it --rm -p 8500:8500 consul
 ```
 * Verify that Consul is running by going to <http://localhost:8500/>.
+* Because Docker containers are run in virtual networks isolated from the 
+host machine, we will no longer be able to use 'localhost' or 127.0.0.1 
+reliably. We will need to change over IP address references because of this 
+fact. Fortunately in the current version of Docker, we can use 172.17.0.1 as a 
+rough equivalent to 127.0.0.1 to refer to the host machine.
+* We will need to make a couple of changes to the 
+[POM file for Path Finder](path-finder/pom.xml). The swarm.bind.address property
+will need to refer to the IP of the container that Path Finder will be running 
+on. On Mac OS, it is convenient to simply change this to 0.0.0.0. We should 
+also change swarm.consul.url to 172.17.0.1 from localhost.
+* The [Cargo Tracker EJB-JAR XML](cargo-tracker/src/main/webapp/WEB-INF/ejb-jar.xml) 
+will need similar changes. Change over the pathFinderDiscoveryUrl value to
+172.17.0.1 from localhost. The [External Routing Service](cargo-tracker/src/main/java/net/java/cargotracker/infrastructure/routing/ExternalRoutingService.java)
+'address' variable should also be hard-coded to 172.17.0.1.
+* In NetBeans, both Cargo Tracker and Path Finder should not be rebuilt 
+(Project -> Clean and Build).
+* Please copy over path-finder-1.0-swarm.jar from the Maven Target directory to
+the project's [path-finder/src/docker/](path-finder/src/docker/) directory.
+* Open up the terminal and change directories to [path-finder/src/docker/](path-finder/src/docker/).
+* We will now build a Docker image for Path Finder using:
+```
+docker build -t path-finder .
+```
+* You will now run Path Finder through Docker:
+```
+docker run -it --rm -p 8888:8888 path-finder
+```
+* Make sure Path Finder is running by navigating to <http://localhost:8888/health>.
+* Please copy over cargo-tracker.war from the Maven Target directory to
+the project's [cargo-tracker/src/docker/](cargo-tracker/src/docker/) directory.
+* Open up the terminal and change directories to [cargo-tracker/src/docker/](cargo-tracker/src/docker/).
+* We will now build a Docker image for Cargo Tracker using:
+```
+docker build -t cargo-tracker .
+```
+* You will now run Cargo Tracker through Docker:
+```
+docker run -it --rm -p 8080:8080 cargo-tracker
+```
+* Make sure Cargo Tracker is running by navigating to <http://localhost:8080/cargo-tracker>.
