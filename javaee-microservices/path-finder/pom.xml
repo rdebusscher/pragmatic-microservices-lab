@@ -6,7 +6,7 @@
 
     <groupId>net.java</groupId>
     <artifactId>path-finder</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.0</version>
     <packaging>war</packaging>
 
     <name>path-finder</name>
@@ -26,6 +26,7 @@
     </dependencies>
 
     <build>
+        <finalName>path-finder</finalName>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
