@@ -4,7 +4,7 @@ This is a vanilla Java EE application of moderate complexity. In microservices
 parlance, the application can be considered a monolith.
 
 Part of this code is used as a demo for 
-[this] (http://www.slideshare.net/reza_rahman/javaee-microservices) talk. A
+[this](http://www.slideshare.net/reza_rahman/javaee-microservices) talk. A
 video for the talk can be found [here](https://www.youtube.com/watch?v=bS6zKgMb8So).
 The code is derived from the [Cargo Tracker](https://cargotracker.java.net/)
 Java EE blue prints project.
