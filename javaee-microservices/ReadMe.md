@@ -3,7 +3,7 @@ Simple Microservices using Vanilla Java EE
 This code demonstrates developing reasonable microservices appropriate for
 most ordinary blue collar IT organizations using nothing but vanilla Java EE 
 and simple, fast deploying thin war files. The code is used as a demo for 
-[this] (http://www.slideshare.net/reza_rahman/javaee-microservices) talk. A
+[this](http://www.slideshare.net/reza_rahman/javaee-microservices) talk. A
 video for the talk can be found [here](https://www.youtube.com/watch?v=bS6zKgMb8So).
 
 The code is derived from the [Cargo Tracker](https://cargotracker.java.net/)
