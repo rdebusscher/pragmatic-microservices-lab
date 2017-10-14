@@ -9,7 +9,7 @@ will also discuss container solutions like Docker and cloud platforms such as
 AWS.   
 
 Part of this code is used as a demo for 
-[this] (http://www.slideshare.net/reza_rahman/javaee-microservices) talk. A
+[this](http://www.slideshare.net/reza_rahman/javaee-microservices) talk. A
 video for the talk can be found [here](https://www.youtube.com/watch?v=bS6zKgMb8So).
 The code is derived from the [Cargo Tracker](https://cargotracker.java.net/)
 Java EE blue prints project. 
