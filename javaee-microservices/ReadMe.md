@@ -49,8 +49,7 @@ original Cargo Tracker application. The Path Finder service is used for
 routing by Cargo Tracker.
 * In this demo both Cargo Tracker and Path Finder run on the same GlassFish 
 instance. If you want you can run the two wars on two different servers. Just 
-make the appropriate changes in [ejb-jar.xml for Cargo Tracker]
-(cargo-tracker/src/main/webapp/WEB-INF/ejb-jar.xml) to point it to the location 
+make the appropriate changes in [ejb-jar.xml for Cargo Tracker](cargo-tracker/src/main/webapp/WEB-INF/ejb-jar.xml) to point it to the location 
 of the Path Finder service. Most servers will also allow you to change the JNDI 
 entry value at runtime through GUI administrative tools without any changes to 
 the war. You can also use load balancers and DNS with the two applications if 
