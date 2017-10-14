@@ -81,5 +81,5 @@ and cloud deployment. We will discuss these concepts as time permits.
 
 To Do
 -----
-* Use AWS.
+* Use AWS or Jelastic.
 * Move from GlassFish to WildFly.
