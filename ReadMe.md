@@ -6,10 +6,10 @@ initially focus on nothing but vanilla Java EE and simple, fast deploying thin
 war files. We then also cover concepts such as fat-jars, dynamic discovery, 
 circuit-breakers and client-side load-balancing using WildFly Swarm. Lastly we 
 will also discuss container solutions like Docker and cloud platforms such as
-AWS.   
+AWS.
 
 Part of this code is used as a demo for 
-[this](http://www.slideshare.net/reza_rahman/javaee-microservices) talk. A
+[this](https://speakerdeck.com/reza_rahman/down-to-earth-microservices-with-java-ee) talk. A
 video for the talk can be found [here](https://www.youtube.com/watch?v=bS6zKgMb8So).
 The code is derived from the [Cargo Tracker](https://cargotracker.java.net/)
 Java EE blue prints project. 
