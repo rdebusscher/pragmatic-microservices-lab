@@ -27,7 +27,7 @@ Setup
 (and extract it).
 * Make sure you have JDK 8+ installed.
 * Please install NetBeans 8+. Make sure to download the Java EE edition.
-* Download GlassFish 4.1 from [here](https://glassfish.java.net/download-archive.html). Make sure to download the 
+* Download GlassFish 4.1 from [here](http://download.oracle.com/glassfish/4.1/release/index.html). Make sure to download the 
 full platform, not the web profile. Please do not use GlassFish 4.1.1 - it 
 has bugs that will stop the application from working properly.
 * Please unzip the zip file anywhere in your file system.
