@@ -4,7 +4,7 @@ This code demonstrates developing fat-jar based microservices using Java EE and
 WildFly Swarm.
 
 Part of this code is used as a demo for 
-[this](http://www.slideshare.net/reza_rahman/javaee-microservices) talk. A
+[this](https://speakerdeck.com/reza_rahman/down-to-earth-microservices-with-java-ee) talk. A
 video for the talk can be found [here](https://www.youtube.com/watch?v=bS6zKgMb8So).
 The code is derived from the [Cargo Tracker](https://cargotracker.java.net/)
 Java EE blue prints project. 
@@ -27,7 +27,7 @@ Setup
 * Download this directory somewhere into your file system.
 * Make sure you have JDK 8+ installed.
 * Please install NetBeans 8+. Make sure to download the Java EE edition.
-* Download GlassFish 4.1 from [here](https://glassfish.java.net/download-archive.html). Make sure to download the 
+* Download GlassFish 4.1 from [here](http://download.oracle.com/glassfish/4.1/release/index.html). Make sure to download the 
 full platform, not the web profile. Please do not use GlassFish 4.1.1 - it 
 has bugs that will stop the application from working properly.
 * Please unzip the zip file anywhere in your file system.
