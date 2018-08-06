@@ -9,7 +9,7 @@
     <version>1.0</version>
     <packaging>war</packaging>
 
-    <name>path-finder</name>
+    <name>Advanced: path-finder</name>
 
     <properties>
         <version.wildfly.swarm>2016.10.0</version.wildfly.swarm>
