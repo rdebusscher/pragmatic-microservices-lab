@@ -12,6 +12,8 @@
     <name>FatJar: path-finder</name>
 
     <properties>
+        <version.payara.micro>5.182</version.payara.micro>
+        <version.payara.maven.plugin>1.0.1</version.payara.maven.plugin>
         <version.wildfly.swarm>2016.10.0</version.wildfly.swarm>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
@@ -33,7 +35,6 @@
     </dependencyManagement>
 
     <dependencies>
-
         <!-- Java EE 7 dependency -->
         <dependency>
             <groupId>javax</groupId>
@@ -42,53 +43,48 @@
             <scope>provided</scope>
         </dependency>
 
-        <!-- WildFly Swarm Fractions -->
-        <dependency>
-            <groupId>org.wildfly.swarm</groupId>
-            <artifactId>cdi</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.wildfly.swarm</groupId>
-            <artifactId>ejb</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.wildfly.swarm</groupId>
-            <artifactId>jaxrs</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.wildfly.swarm</groupId>
-            <artifactId>bean-validation</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.wildfly.swarm</groupId>
-            <artifactId>jaxrs-cdi</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.wildfly.swarm</groupId>
-            <artifactId>jaxrs-validator</artifactId>
-        </dependency>
     </dependencies>
 
     <build>
         <plugins>
             <plugin>
-                <groupId>org.wildfly.swarm</groupId>
-                <artifactId>wildfly-swarm-plugin</artifactId>
-                <version>${version.wildfly.swarm}</version>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>properties-maven-plugin</artifactId>
+                <version>1.0.0</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>set-system-properties</goal>
+                        </goals>
+                        <phase>package</phase>
+                        <configuration>
+                            <properties>
+                                <property>
+                                    <name>payaramicro.port</name>
+                                    <value>8888</value>
+                                </property>
+                            </properties>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>fish.payara.maven.plugins</groupId>
+                <artifactId>payara-micro-maven-plugin</artifactId>
+                <version>${version.payara.maven.plugin}</version>
                 <configuration>
-                    <properties>
-                        <swarm.http.port>8888</swarm.http.port>
-                    </properties>
+                    <payaraVersion>${version.payara.micro}</payaraVersion>
+                    <useUberJar>true</useUberJar>
                 </configuration>
                 <executions>
                     <execution>
                         <goals>
-                            <goal>package</goal>
+                            <goal>bundle</goal>
                         </goals>
                     </execution>
                 </executions>
             </plugin>
         </plugins>
     </build>
-
+        
 </project>

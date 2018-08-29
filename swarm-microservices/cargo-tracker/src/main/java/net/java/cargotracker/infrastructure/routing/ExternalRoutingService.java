@@ -51,8 +51,6 @@ public class ExternalRoutingService implements RoutingService {
     @PostConstruct
     public void init() {
         graphTraversalResource = jaxrsClient.target(graphTraversalUrl);
-        graphTraversalResource.register(JacksonConfigurationContextResolver.class);
-        graphTraversalResource.register(JacksonFeature.class);
     }
 
     @Override
