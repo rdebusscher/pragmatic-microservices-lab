@@ -12,7 +12,8 @@
     <name>Advanced: path-finder</name>
 
     <properties>
-        <version.wildfly.swarm>2016.10.0</version.wildfly.swarm>
+        <version.payara.micro>5.182</version.payara.micro>
+        <version.payara.maven.plugin>1.0.1</version.payara.maven.plugin>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
         <failOnMissingWebXml>false</failOnMissingWebXml>
@@ -20,88 +21,57 @@
         <endorsed.dir>${project.build.directory}/endorsed</endorsed.dir>
     </properties>
 
-    <dependencyManagement>
-        <dependencies>
-            <dependency>
-                <groupId>org.wildfly.swarm</groupId>
-                <artifactId>bom-all</artifactId>
-                <version>${version.wildfly.swarm}</version>
-                <scope>import</scope>
-                <type>pom</type>
-            </dependency>
-        </dependencies>
-    </dependencyManagement>
-
     <dependencies>
-
-        <!-- Java EE 7 dependency -->
+        <!-- MicroProfile dependency -->
         <dependency>
-            <groupId>javax</groupId>
-            <artifactId>javaee-api</artifactId>
-            <version>7.0</version>
+            <groupId>org.eclipse.microprofile</groupId>
+            <artifactId>microprofile</artifactId>
+            <version>2.0.1</version>
+            <type>pom</type>
             <scope>provided</scope>
         </dependency>
 
-        <!-- WildFly Swarm Fractions -->
-        <dependency>
-            <groupId>org.wildfly.swarm</groupId>
-            <artifactId>cdi</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.wildfly.swarm</groupId>
-            <artifactId>ejb</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.wildfly.swarm</groupId>
-            <artifactId>jaxrs</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.wildfly.swarm</groupId>
-            <artifactId>bean-validation</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.wildfly.swarm</groupId>
-            <artifactId>jaxrs-cdi</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.wildfly.swarm</groupId>
-            <artifactId>jaxrs-validator</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.wildfly.swarm</groupId>
-            <artifactId>monitor</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.wildfly.swarm</groupId>
-            <artifactId>topology-consul</artifactId>
-        </dependency>
     </dependencies>
 
     <build>
         <plugins>
             <plugin>
-                <groupId>org.wildfly.swarm</groupId>
-                <artifactId>wildfly-swarm-plugin</artifactId>
-                <version>${version.wildfly.swarm}</version>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>properties-maven-plugin</artifactId>
+                <version>1.0.0</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>set-system-properties</goal>
+                        </goals>
+                        <phase>package</phase>
+                        <configuration>
+                            <properties>
+                                <property>
+                                    <name>payaramicro.port</name>
+                                    <value>8888</value>
+                                </property>
+                            </properties>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>fish.payara.maven.plugins</groupId>
+                <artifactId>payara-micro-maven-plugin</artifactId>
+                <version>${version.payara.maven.plugin}</version>
                 <configuration>
-                    <properties>
-                        <swarm.bind.address>127.0.0.1</swarm.bind.address>
-                        <!-- <swarm.bind.address>172.17.0.3</swarm.bind.address> -->
-                        <swarm.http.port>8888</swarm.http.port>
-                        <!-- <swarm.management.http.port>9999</swarm.management.http.port> -->
-                        <swarm.consul.url>http://localhost:8500/</swarm.consul.url>
-                        <!-- <swarm.consul.url>http://172.17.0.2:8500/</swarm.consul.url> -->
-                    </properties>
+                    <payaraVersion>${version.payara.micro}</payaraVersion>
+                    <useUberJar>true</useUberJar>
                 </configuration>
                 <executions>
                     <execution>
                         <goals>
-                            <goal>package</goal>
+                            <goal>bundle</goal>
                         </goals>
                     </execution>
                 </executions>
             </plugin>
         </plugins>
     </build>
-
 </project>

@@ -4,7 +4,6 @@ import java.io.File;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
-import org.wildfly.swarm.monitor.Health;
 
 @Path("/application")
 public class HealthCheckResource {
@@ -12,7 +11,7 @@ public class HealthCheckResource {
     @GET
     @Path("/diskSpace")
     @Produces("text/plain")
-    @Health
+//    @Health
     public long checkDiskspace() {
         return new File(".").getFreeSpace();
     }
