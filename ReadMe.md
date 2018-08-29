@@ -26,20 +26,12 @@ Setup
 * Download this project somewhere into your file system, probably as a zip file 
 (and extract it).
 * Make sure you have JDK 8+ installed.
-* Please install NetBeans 8+. Make sure to download the Java EE edition.
-* Download GlassFish 4.1 from [here](http://download.oracle.com/glassfish/4.1/release/index.html). Make sure to download the 
-full platform, not the web profile. Please do not use GlassFish 4.1.1 - it 
-has bugs that will stop the application from working properly.
+* Please download and install NetBeans 8+ from [here](https://netbeans.org/downloads/). Make sure to download the Java EE edition.
+* Download Payara Server 5 from [here](https://www.payara.fish/downloads).
 * Please unzip the zip file anywhere in your file system.
-* NetBeans bundles an outdated version of Maven by default. WildFly Swarm 
-needs an updated version of Maven. Please download and install the latest
-version of [Maven](https://maven.apache.org/download.cgi).
-* Start NetBeans. Point NetBeans to the updated Maven installation by going to
-NetBeans -> Preferences -> Java -> Maven -> Maven Home. 
-* You now need to setup GlassFish in NetBeans. You do that by going to 
+* You now need to setup Payara in NetBeans. You do that by going to 
 Services -> Servers -> Add Server -> GlassFish Server. Enter the location of 
-the GlassFish directory. Choose the defaults in the next few screens to register 
-GlassFish with NetBeans.
+the Payara directory. Choose the defaults in the next few screens to register Payara with NetBeans.
 
 Instructions
 ------------
