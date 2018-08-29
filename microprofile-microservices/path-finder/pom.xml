@@ -14,7 +14,6 @@
     <properties>
         <version.payara.micro>5.182</version.payara.micro>
         <version.payara.maven.plugin>1.0.1</version.payara.maven.plugin>
-        <version.wildfly.swarm>2016.10.0</version.wildfly.swarm>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
         <failOnMissingWebXml>false</failOnMissingWebXml>
@@ -22,24 +21,13 @@
         <endorsed.dir>${project.build.directory}/endorsed</endorsed.dir>
     </properties>
 
-    <dependencyManagement>
-        <dependencies>
-            <dependency>
-                <groupId>org.wildfly.swarm</groupId>
-                <artifactId>bom-all</artifactId>
-                <version>${version.wildfly.swarm}</version>
-                <scope>import</scope>
-                <type>pom</type>
-            </dependency>
-        </dependencies>
-    </dependencyManagement>
-
     <dependencies>
-        <!-- Java EE 7 dependency -->
+        <!-- MicroProfile dependency -->
         <dependency>
-            <groupId>javax</groupId>
-            <artifactId>javaee-api</artifactId>
-            <version>7.0</version>
+            <groupId>org.eclipse.microprofile</groupId>
+            <artifactId>microprofile</artifactId>
+            <version>2.0.1</version>
+            <type>pom</type>
             <scope>provided</scope>
         </dependency>
 
