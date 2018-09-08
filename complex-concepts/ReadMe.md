@@ -2,7 +2,7 @@ Complex Microservices Concepts
 ==============================
 This code demonstrates developing advanced/complex microservices including 
 far jars, health, dynamic discovery, containerized deployments as well as cloud 
-deployments using Java EE, WildFly Swarm, Docker and AWS.
+deployments using Java EE, MicroProfile, Docker and AWS.
 
 Part of this code is used as a demo for 
 [this](https://speakerdeck.com/reza_rahman/down-to-earth-microservices-with-java-ee) talk. A
@@ -13,60 +13,46 @@ Java EE blue prints project.
 The overall application is broken up into two logical units - Cargo Tracker and 
 Path Finder. The Cargo Tracker application is a larger Java EE war deployed to
 GlassFish. In microservices parlance the Cargo Tracker application is a so-called 
-monolith. The Path Finder microservice is developed as a Java EE fat jar using 
-WildFly Swarm. Cargo Tracker uses the smaller Path Finder microservice.
+monolith. The Path Finder microservice is developed as a MicroProfile fat jar.
+Cargo Tracker uses the smaller Path Finder microservice.
 
-This code uses GlassFish 4.1. It should be possible to use any Java EE 7 
-compatible application server such as Payara, WildFly, JBoss EAP, 
-WebSphere Liberty or WebLogic. We use WildFly Swarm as our fat-jar solution. It
-should be possible to use any other MicroProfile compatible runtime such as 
-Payara Micro or TomEE embedded. We use NetBeans but you can use any Maven 
-capable IDE.
+This code uses Payara Server 5. It should be possible to use any Java EE 8
+compatible application server such as GlassFish, WildFly or WebSphere Liberty.
+
+We use Payara Micro 5.183 as our fat-jar solution. It should be possible to use any 
+other MicroProfile 2.0 compatible runtime such as WildFly Swarm, Thorntail or TomEE.
+We use NetBeans but you can use any Maven capable IDE.
 
 Setup
 -----
 * Download this directory somewhere into your file system.
 * Make sure you have JDK 8+ installed.
 * Please install NetBeans 8+. Make sure to download the Java EE edition.
-* Download GlassFish 4.1 from [here](http://download.oracle.com/glassfish/4.1/release/index.html). Make sure to download the 
-full platform, not the web profile. Please do not use GlassFish 4.1.1 - it 
-has bugs that will stop the application from working properly.
+* Download Payara Server 5 from [here](https://www.payara.fish). Make sure to download the 
+full platform, not the web profile.
 * Please unzip the zip file anywhere in your file system.
-* NetBeans bundles an outdated version of Maven by default. WildFly Swarm 
-needs an updated version of Maven. Please download and install the latest
-version of [Maven](https://maven.apache.org/download.cgi).
 * Start NetBeans. Point NetBeans to the updated Maven installation by going to
 NetBeans -> Preferences -> Java -> Maven -> Maven Home. 
-* You now need to setup GlassFish in NetBeans. You do that by going to 
+* You now need to setup Payara Server in NetBeans. You do that by going to 
 Services -> Servers -> Add Server -> GlassFish Server. Enter the location of 
-the GlassFish directory. Choose the defaults in the next few screens to register 
-GlassFish with NetBeans.
-* We use Consul for service registration.
-[Download and install Consul](https://www.consul.io/intro/getting-started/install.html) 
-for your OS.
+the Payara Server directory. Choose the defaults in the next few screens to register 
+Payara Server as a GlassFish Server with NetBeans.
+* build the project with `mvn install` - this will build all the subprojects
 
-Instructions
+Instructions for running with discovery over Payara cluster
 ------------
-* You must start Consul:
-```
-consul agent -dev
-```
-* Please verify that Consul is running by going to <http://localhost:8500/>. 
-There won't be much to see right now. As the microservice comes up, you'll see
-it show up here. 
-* There are two separate Maven projects in the directory - cargo-tracker and 
-path-finder. You need to open and build both projects in NetBeans.
+
 * You first need to run the path-finder microservice. You can run it through 
-Project -> Run Maven -> Run with WildFly Swarm. This is a custom NetBeans action
-that executes the wildfly-swarm:run Maven goal. Please wait for the project to 
+Project -> Run Maven -> Run with Payara Micro. This is a custom NetBeans action
+that executes the payara-micro:start Maven goal. Please wait for the project to 
 start. You can also run the path-finder application by going to it's target 
 directory and executing:
 ```
-java -jar path-finder-1.0-swarm.jar
+java -jar path-finder-1.0-microbundle.jar
 ```
 * Next you will run the cargo-tracker application. You will need to specify that 
-the cargo-tracker project will run with GlassFish. You do that by going to 
-Project -> Properties -> Run -> Server and choosing GlassFish. You will run the 
+the cargo-tracker project will run with Payara Server. You do that by going to 
+Project -> Properties -> Run -> Server and choosing Payara Server. You will run the 
 Cargo Tracker application by selecting Project -> Run. When the application 
 finishes deploying, NetBeans should automatically open a browser window with the 
 running application.
@@ -74,10 +60,24 @@ running application.
 Cargo Tracker application on how to do this or look through the readme of the 
 original Cargo Tracker application. The Path Finder service is used for
 routing by Cargo Tracker.
-* The Path Finder microservice is equipped with some basic health check 
+* TODO: rewrite for Microprofile -> The Path Finder microservice is equipped with some basic health check 
 facilities using the WildFly Swarm monitor fragment. You can check them out by
 navigating to <http://localhost:8888/node>, <http://localhost:8888/heap>, 
 <http://localhost:8888/threads> and <http://localhost:8888/health>.
+
+
+Instructions for running with discovery using Consul
+------------
+
+* You must start Consul:
+```
+consul agent -dev
+```
+* Please verify that Consul is running by going to <http://localhost:8500/>. 
+There won't be much to see right now. As the microservice comes up, you'll see
+it show up here. 
+* Modify pom.xml of the path-finder microservice to use the `consul-discovery` dependency instead of the `jcache-discovery` dependency
+* Continue with the instructions for running with discovery over Payara cluster
 
 Docker Instructions
 -------------------

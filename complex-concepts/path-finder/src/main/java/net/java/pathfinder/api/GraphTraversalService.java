@@ -3,6 +3,7 @@ package net.java.pathfinder.api;
 import java.util.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
@@ -11,7 +12,7 @@ import javax.ws.rs.QueryParam;
 import net.java.pathfinder.internal.GraphDao;
 
 @Path("/graph-traversal")
-//@Advertise("path-finder")
+@RequestScoped
 public class GraphTraversalService {
 
     private static final Logger LOGGER

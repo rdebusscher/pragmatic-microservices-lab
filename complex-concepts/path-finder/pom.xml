@@ -12,7 +12,7 @@
     <name>Advanced: path-finder</name>
 
     <properties>
-        <version.payara.micro>5.182</version.payara.micro>
+        <version.payara.micro>5.183</version.payara.micro>
         <version.payara.maven.plugin>1.0.1</version.payara.maven.plugin>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
@@ -22,6 +22,12 @@
     </properties>
 
     <dependencies>
+        <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>jcache-discovery</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+
         <!-- MicroProfile dependency -->
         <dependency>
             <groupId>org.eclipse.microprofile</groupId>
@@ -38,24 +44,14 @@
             <version>8.0</version>
             <scope>provided</scope>
         </dependency>
+        
         <dependency>
-            <groupId>${project.groupId}</groupId>
-            <artifactId>consul-discovery</artifactId>
-            <version>${project.version}</version>
+            <groupId>fish.payara.extras</groupId>
+            <artifactId>payara-micro</artifactId>
+            <version>${version.payara.micro}</version>
+            <scope>provided</scope>
         </dependency>
     </dependencies>
-
-    <dependencyManagement>
-        <dependencies>
-            <dependency>
-                <groupId>org.wildfly.swarm</groupId>
-                <artifactId>bom-all</artifactId>
-                <version>2016.10.0</version>
-                <scope>import</scope>
-                <type>pom</type>
-            </dependency>
-        </dependencies>
-    </dependencyManagement>
 
     <build>
         <plugins>
@@ -74,6 +70,14 @@
                                 <property>
                                     <name>payaramicro.port</name>
                                     <value>8888</value>
+                                </property>
+                                <property>
+                                    <name>payaramicro.autoBindHttp</name>
+                                    <value>true</value>
+                                </property>
+                                <property>
+                                    <name>payaramicro.clusterMode</name>
+                                    <value>domain:localhost:4900</value>
                                 </property>
                             </properties>
                         </configuration>

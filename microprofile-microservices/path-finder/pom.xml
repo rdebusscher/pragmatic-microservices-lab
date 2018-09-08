@@ -12,7 +12,7 @@
     <name>FatJar: path-finder</name>
 
     <properties>
-        <version.payara.micro>5.182</version.payara.micro>
+        <version.payara.micro>5.183</version.payara.micro>
         <version.payara.maven.plugin>1.0.1</version.payara.maven.plugin>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>

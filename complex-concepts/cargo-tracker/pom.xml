@@ -5,7 +5,7 @@
 
     <groupId>net.java</groupId>
     <artifactId>cargo-tracker</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.0</version>
     <packaging>war</packaging>
 
     <name>Advanced: cargo-tracker</name>
@@ -28,6 +28,12 @@
     </repositories>
 
     <dependencies>
+        <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>jcache-discovery</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+
         <!-- Java EE API -->
         <dependency>
             <groupId>javax</groupId>
@@ -36,7 +42,22 @@
             <scope>provided</scope>
         </dependency>
 
+        <!-- MicroProfile dependency -->
+        <dependency>
+            <groupId>org.eclipse.microprofile</groupId>
+            <artifactId>microprofile</artifactId>
+            <version>2.0.1</version>
+            <type>pom</type>
+            <scope>provided</scope>
+        </dependency>
+
         <!-- GlassFish specific dependencies -->
+        <dependency>
+            <groupId>com.hazelcast</groupId>
+            <artifactId>hazelcast</artifactId>
+            <version>3.10.2</version>
+            <scope>provided</scope>
+        </dependency>
         <dependency>
             <groupId>org.glassfish.jersey.containers</groupId>
             <artifactId>jersey-container-servlet-core</artifactId>

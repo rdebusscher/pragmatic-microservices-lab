@@ -1,5 +1,6 @@
 package net.java.pathfinder.util;
 
+import fish.payara.micro.PayaraMicro;
 import java.util.concurrent.TimeUnit;
 import java.util.logging.Logger;
 import javax.annotation.PostConstruct;
@@ -28,8 +29,10 @@ public class ServiceRegistration {
     }
 
     public void registerAtStartup(@Observes @Initialized(ApplicationScoped.class) ServletContext context) {
+        int port = PayaraMicro.getInstance().getRuntime().getLocalDescriptor().getHttpPorts().get(0);
         advert = new ServiceAdvertisement()
                 .withName("pathfinder")
+                .withPort(port)
                 .withContextRoot(context.getContextPath());
         advertizer.advertize(advert, scheduler);
         

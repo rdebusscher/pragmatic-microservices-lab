@@ -13,5 +13,6 @@
         <module>cargo-tracker</module>
         <module>path-finder</module>
         <module>consul-discovery</module>
+        <module>jcache-discovery</module>
     </modules>
 </project>
