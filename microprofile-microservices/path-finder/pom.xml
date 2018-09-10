@@ -90,7 +90,7 @@
                         <configuration>
                             <images>
                                 <image>
-                                    <alias>${project.artifactId}-payara</alias>
+                                    <alias>${project.artifactId}</alias>
                                     <name>pragmatic-microservices-lab/${project.artifactId}:${project.version}</name>
                                     <build>
                                         <maintainer>Ivar Grimstad (ivar.grimstad@gmail.com)</maintainer>
