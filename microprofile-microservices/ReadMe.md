@@ -48,6 +48,19 @@ directory and executing:
 ```
 java -jar path-finder-1.0-microbundle.jar
 ```
+
+* (Optional) Run with Docker:
+
+**Build Docker image**
+```
+mvn clean package -Pdocker
+```
++
+**Run with Docker**
+```
+docker run -it -p 8888:8080 pragmatic-microservices-lab/path-finder:1.0
+```
+
 * Next you will run the cargo-tracker application. You will need to specify that 
 the cargo-tracker project will run with Payara Server. You do that by going to 
 Project -> Properties -> Run -> Server and choosing Payara Server. You will run the 
