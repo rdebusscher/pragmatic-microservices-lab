@@ -35,9 +35,8 @@ the Payara Server directory. Choose the defaults in the next few screens to regi
 Payara Server as a GlassFish Server with NetBeans.
 * build the project with `mvn install` - this will build all the subprojects
 
-Instructions for running with discovery over Payara cluster
-------------
-
+Instructions for Running with Discovery over Payara Cluster
+-----------------------------------------------------------
 * You first need to run the path-finder microservice. You can run it through 
 Project -> Run Maven -> Run with Payara Micro. This is a custom NetBeans action
 that executes the payara-micro:start Maven goal. Please wait for the project to 
@@ -61,18 +60,16 @@ facilities using the WildFly Swarm monitor fragment. You can check them out by
 navigating to <http://localhost:8888/node>, <http://localhost:8888/heap>, 
 <http://localhost:8888/threads> and <http://localhost:8888/health>.
 
-
-Instructions for running with discovery using Consul
-------------
-
+Instructions for Running with Discovery using Consul
+----------------------------------------------------
 * You must start Consul:
 ```
 consul agent -dev
 ```
 * Please verify that Consul is running by going to <http://localhost:8500/>. 
 There won't be much to see right now. As the microservice comes up, you'll see
-it show up here. 
-* Modify pom.xml of the path-finder microservice to use the `consul-discovery` dependency instead of the `jcache-discovery` dependency
+it show up here.
+* TODO: Could we use a separate Maven profile here? Modify pom.xml of the path-finder microservice to use the `consul-discovery` dependency instead of the `jcache-discovery` dependency
 * Continue with the instructions for running with discovery over Payara cluster
 
 Docker Instructions
