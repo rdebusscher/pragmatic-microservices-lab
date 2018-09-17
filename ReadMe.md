@@ -56,18 +56,16 @@ solution in detail.
 * Having discussed how we can develop simple microservices using vanilla Java EE
 war files, we are ready to introduce Payara Micro as a fat jar solution. 
 Introducing Payara Micro also enables us to add other MicroProfile features besides fat jars
-such as configuration, health-check, circuit-breakers/bulkheads and 
-client-side load-balancing. After discussing these concepts, we will convert 
-path-finder from a war file to a self-contained fat-jar.
-* The [swarm-microservices](swarm-microservices/) directory has a possible 
-solution for converting path-finder into a WildFly Swarm based fat jar.
+such as configuration, health-check, circuit-breakers/bulkheads and metrics. After discussing 
+these concepts, we will convert path-finder from a war file to a self-contained fat-jar.
+* The [microprofile-microservices](microprofile-microservices/) directory has a possible 
+solution for converting path-finder into a Payara Micro based fat jar.
 You should follow the instructions in the directory to get the solution running 
 and explore it. We will discuss this solution in detail.
 * The [complex-concepts](complex-concepts/) directory contains some examples of 
-more advanced concepts such as health-check, dynamic discovery, containers 
+more advanced concepts such as configuration, health-check, metrics, containers 
 and cloud deployment. We will discuss these concepts as time permits.
 
 To Do
 -----
-* Use AWS or Jelastic.
-* Move from GlassFish to WildFly.
+* Use AWS or Jelastic for cloud demo.
