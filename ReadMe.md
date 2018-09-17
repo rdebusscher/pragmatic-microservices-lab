@@ -11,22 +11,19 @@ AWS.
 Part of this code is used as a demo for 
 [this](https://speakerdeck.com/reza_rahman/down-to-earth-microservices-with-java-ee) talk. A
 video for the talk can be found [here](https://www.youtube.com/watch?v=bS6zKgMb8So).
-The code is derived from the [Cargo Tracker](https://cargotracker.java.net/)
-Java EE blue prints project. 
+The code is derived from the [Cargo Tracker](https://m-reza-rahman.github.io/cargo-tracker/) project. 
 
-This lab uses GlassFish 4.1. It should be possible to use any Java EE 7 
-compatible application server such as Payara, WildFly, JBoss EAP, 
-WebSphere Liberty or WebLogic. We use WildFly Swarm as our fat-jar solution. It
-should be possible to use any other MicroProfile compatible runtime such as 
-Payara Micro or TomEE embedded. We use NetBeans but you can use any Maven 
+This lab uses Payara 5. It should be possible to use any Java EE 8  compatible application server such as 
+GlassFish, WildFly or WebSphere Liberty. We use Payara Micro as our fat-jar solution. It should be possible 
+to use any other MicroProfile compatible runtime such as Thorntail. We use NetBeans but you can use any Maven 
 capable IDE. 
 
 Setup
 -----
 * Download this project somewhere into your file system, probably as a zip file 
 (and extract it).
-* Make sure you have JDK 8+ installed.
-* Please download and install NetBeans 8+ from [here](https://netbeans.org/downloads/). Make sure to download the Java EE edition.
+* Make sure you have the latest version of JDK 8 installed. Older and newer versions may cause unexpected issues.
+* Please download and install NetBeans 8.2 from [here](https://netbeans.org/downloads/). Make sure to download the Java EE edition. Older and newer versions may cause unexpected issues.
 * Download Payara Server 5 from [here](https://www.payara.fish/downloads).
 * Please unzip the zip file anywhere in your file system.
 * You now need to setup Payara in NetBeans. You do that by going to 
