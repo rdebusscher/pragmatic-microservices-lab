@@ -1,4 +1,4 @@
-Pragmatic Microservices with Java EE and WildFly Swarm
+Pragmatic Microservices with Java EE and MicroProfile
 ======================================================
 This hands-on lab demonstrates developing reasonable microservices appropriate 
 for most ordinary blue collar IT organizations in a step-by-step fashion. We 
