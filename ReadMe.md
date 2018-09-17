@@ -4,7 +4,7 @@ This hands-on lab demonstrates developing reasonable microservices appropriate
 for most ordinary blue collar IT organizations in a step-by-step fashion. We 
 initially focus on nothing but vanilla Java EE and simple, fast deploying thin 
 war files. We then also cover concepts such as fat-jars, dynamic discovery, 
-circuit-breakers and client-side load-balancing using WildFly Swarm. Lastly we 
+circuit-breakers and client-side load-balancing using Payara Micro. Lastly we 
 will also discuss container solutions like Docker and cloud platforms such as
 AWS.
 
