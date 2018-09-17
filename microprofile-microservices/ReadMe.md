@@ -58,8 +58,8 @@ Cargo Tracker application on how to do this or look through the readme of the
 original Cargo Tracker application. The Path Finder service is used for
 routing by Cargo Tracker.
 
-Running with Docker
--------------------
+Running with Docker (Optional)
+------------------------------
 You can optionally run the path finder application using Docker. Note, we will cover
 Docker in greater detail in the [complex-concepts](../complex-concepts) section of the lab.
 
