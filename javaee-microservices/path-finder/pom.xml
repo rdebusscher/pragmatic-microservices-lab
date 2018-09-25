@@ -9,18 +9,18 @@
     <version>1.0</version>
     <packaging>war</packaging>
 
-    <name>JavaEE msvc: path-finder</name>
+    <name>path-finder (microservice)</name>
 
     <properties>
         <endorsed.dir>${project.build.directory}/endorsed</endorsed.dir>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
-    
+
     <dependencies>
         <dependency>
             <groupId>javax</groupId>
             <artifactId>javaee-api</artifactId>
-            <version>7.0</version>
+            <version>8.0</version>
             <scope>provided</scope>
         </dependency>
     </dependencies>
