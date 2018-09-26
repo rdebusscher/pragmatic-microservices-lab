@@ -8,7 +8,7 @@
     <version>1.0</version>
     <packaging>war</packaging>
 
-    <name>Advanced: cargo-tracker</name>
+    <name>cargo-tracker (complex-concepts)</name>
     <url>http://cargotracker.java.net</url>
 
     <properties>
