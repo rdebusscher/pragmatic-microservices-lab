@@ -3,17 +3,14 @@ package net.java.cargotracker.infrastructure.routing;
 import java.util.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.annotation.PostConstruct;
 import javax.annotation.Resource;
 import javax.ejb.Stateless;
-import javax.enterprise.inject.Instance;
 import javax.inject.Inject;
 import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientBuilder;
 import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.GenericType;
 import javax.ws.rs.core.MediaType;
-import net.java.cargotracker.application.util.JacksonConfigurationContextResolver;
 import net.java.cargotracker.domain.model.cargo.Itinerary;
 import net.java.cargotracker.domain.model.cargo.Leg;
 import net.java.cargotracker.domain.model.cargo.RouteSpecification;
@@ -23,9 +20,6 @@ import net.java.cargotracker.domain.model.voyage.VoyageNumber;
 import net.java.cargotracker.domain.model.voyage.VoyageRepository;
 import net.java.cargotracker.domain.service.RoutingService;
 import org.eclipse.microprofile.config.Config;
-import org.eclipse.microprofile.config.ConfigProvider;
-import org.eclipse.microprofile.config.inject.ConfigProperty;
-import org.glassfish.jersey.jackson.JacksonFeature;
 
 /**
  * Our end of the routing service. This is basically a data model translation

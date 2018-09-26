@@ -1,10 +1,7 @@
 package net.java.discovery;
 
-import java.io.Serializable;
-import java.util.*;
 import java.util.concurrent.*;
 import javax.cache.*;
-import javax.cache.processor.*;
 import org.eclipse.microprofile.config.Config;
 import org.eclipse.microprofile.config.ConfigProvider;
 

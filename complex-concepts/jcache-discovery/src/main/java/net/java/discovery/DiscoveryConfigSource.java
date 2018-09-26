@@ -1,8 +1,6 @@
 package net.java.discovery;
 
 import java.util.*;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.cache.*;
 import org.eclipse.microprofile.config.spi.ConfigSource;
 
