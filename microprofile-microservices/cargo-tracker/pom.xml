@@ -8,7 +8,7 @@
     <version>1.0-SNAPSHOT</version>
     <packaging>war</packaging>
 
-    <name>cargo-tracker (monolith)</name>
+    <name>cargo-tracker (microprofile-microservices)</name>
     <url>http://cargotracker.java.net</url>
 
     <properties>

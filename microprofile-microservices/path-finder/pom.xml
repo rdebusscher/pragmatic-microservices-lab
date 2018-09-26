@@ -9,7 +9,7 @@
     <version>1.0</version>
     <packaging>war</packaging>
 
-    <name>path-finder (microservice fat jar)</name>
+    <name>path-finder (microprofile-microservices)</name>
 
     <properties>
         <version.payara.micro>5.183</version.payara.micro>
