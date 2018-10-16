@@ -68,4 +68,4 @@ and cloud deployment. We will discuss these concepts as time permits.
 
 To Do
 -----
-* Use AWS or Jelastic for cloud demo.
+* Use Jelastic for cloud demo.
