@@ -41,9 +41,9 @@ Instructions
 path-finder. You need to open and build both projects in NetBeans.
 * You first need to run the path-finder microservice. You can run it through 
 Project -> Run Maven -> Run with Payara Micro. This is a custom NetBeans action
-that executes the payara-micro:start Maven goal. Please wait for the project to 
+that executes the `clean install payara-micro:start` Maven goal. Please wait for the project to 
 start. You can also run the path-finder application by going to it's target 
-directory and executing:
+directory and executing (once you have done a normal Maven build):
 ```
 java -jar path-finder-1.0-microbundle.jar
 ```
