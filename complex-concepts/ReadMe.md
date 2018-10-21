@@ -72,8 +72,13 @@ consul agent -dev
 * Please verify that Consul is running by going to <http://localhost:8500/>. 
 There won't be much to see right now. As the microservice comes up, you'll see
 it show up here. 
-* Modify pom.xml of the path-finder microservice to use the `consul-discovery` dependency instead of the `jcache-discovery` dependency and rebuild the application
-* Continue with the instructions for running with discovery over Payara cluster
+* Rebuild the project with the `consul-discovery` Maven profile:
+
+```
+mvn -Pconsul-discovery clean install
+```
+
+* Continue with the instructions for running with discovery over Payara datagrid
 
 Advanced patterns using MicroProfile
 ------------------------------------

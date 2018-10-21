@@ -22,19 +22,7 @@
     </properties>
 
     <dependencies>
-        <dependency>
-            <groupId>${project.groupId}</groupId>
-            <artifactId>jcache-discovery</artifactId>
-            <version>${project.version}</version>
-        </dependency>
 
-<!-- Alternative dependency for discovery, it can replace jcache-discovery to use Consul instead of JCache
-        <dependency>
-            <groupId>${project.groupId}</groupId>
-            <artifactId>consul-discovery</artifactId>
-            <version>${project.version}</version>
-        </dependency>
--->
         <!-- MicroProfile dependency -->
         <dependency>
             <groupId>org.eclipse.microprofile</groupId>
@@ -59,6 +47,32 @@
             <scope>provided</scope>
         </dependency>
     </dependencies>
+
+    <profiles>
+        <profile>
+            <id>jcache-discovery</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <dependencies>
+                <dependency>
+                    <groupId>${project.groupId}</groupId>
+                    <artifactId>jcache-discovery</artifactId>
+                    <version>${project.version}</version>
+                </dependency>
+            </dependencies>
+        </profile>
+        <profile>
+            <id>consul-discovery</id>
+            <dependencies>
+                <dependency>
+                    <groupId>${project.groupId}</groupId>
+                    <artifactId>consul-discovery</artifactId>
+                    <version>${project.version}</version>
+                </dependency>
+            </dependencies>
+        </profile>
+    </profiles>
 
     <build>
         <plugins>

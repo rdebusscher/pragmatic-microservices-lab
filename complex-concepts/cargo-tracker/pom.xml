@@ -28,12 +28,6 @@
     </repositories>
 
     <dependencies>
-        <dependency>
-            <groupId>${project.groupId}</groupId>
-            <artifactId>jcache-discovery</artifactId>
-            <version>${project.version}</version>
-        </dependency>
-
         <!-- Java EE API -->
         <dependency>
             <groupId>javax</groupId>
@@ -85,6 +79,32 @@
             <version>1.0.10</version>
         </dependency>
     </dependencies>
+
+    <profiles>
+        <profile>
+            <id>jcache-discovery</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <dependencies>
+                <dependency>
+                    <groupId>${project.groupId}</groupId>
+                    <artifactId>jcache-discovery</artifactId>
+                    <version>${project.version}</version>
+                </dependency>
+            </dependencies>
+        </profile>
+        <profile>
+            <id>consul-discovery</id>
+            <dependencies>
+                <dependency>
+                    <groupId>${project.groupId}</groupId>
+                    <artifactId>consul-discovery</artifactId>
+                    <version>${project.version}</version>
+                </dependency>
+            </dependencies>
+        </profile>
+    </profiles>
 
     <build>
         <finalName>cargo-tracker</finalName>
