@@ -13,7 +13,7 @@
 
     <properties>
         <version.payara.micro>5.183</version.payara.micro>
-        <version.payara.maven.plugin>1.0.1</version.payara.maven.plugin>
+        <version.payara.maven.plugin>1.0.2</version.payara.maven.plugin>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
         <failOnMissingWebXml>false</failOnMissingWebXml>
@@ -28,6 +28,13 @@
             <version>${project.version}</version>
         </dependency>
 
+<!-- Alternative dependency for discovery, it can replace jcache-discovery to use Consul instead of JCache
+        <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>consul-discovery</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+-->
         <!-- MicroProfile dependency -->
         <dependency>
             <groupId>org.eclipse.microprofile</groupId>
@@ -77,7 +84,7 @@
                                 </property>
                                 <property>
                                     <name>payaramicro.clusterMode</name>
-                                    <value>domain:localhost:4900</value>
+                                    <value>domain:127.0.0.1:4900</value>
                                 </property>
                             </properties>
                         </configuration>

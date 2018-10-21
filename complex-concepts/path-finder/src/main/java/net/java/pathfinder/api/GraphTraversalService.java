@@ -10,6 +10,7 @@ import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
 import net.java.pathfinder.internal.GraphDao;
+import org.eclipse.microprofile.metrics.annotation.Counted;
 
 @Path("/graph-traversal")
 @RequestScoped
@@ -27,6 +28,7 @@ public class GraphTraversalService {
     @GET
     @Path("/shortest-path")
     @Produces({"application/json", "application/xml; qs=.75"})
+    @Counted(name = "findShortestPath", absolute = true, monotonic = true)
     // TODO Add internationalized messages for constraints.
     public List<TransitPath> findShortestPath(
             @QueryParam("origin") String originUnLocode,
