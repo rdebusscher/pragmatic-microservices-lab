@@ -9,7 +9,7 @@
     <version>1.0</version>
     <packaging>war</packaging>
 
-    <name>Advanced: path-finder</name>
+    <name>path-finder (complex-concepts)</name>
 
     <properties>
         <version.payara.micro>5.183</version.payara.micro>

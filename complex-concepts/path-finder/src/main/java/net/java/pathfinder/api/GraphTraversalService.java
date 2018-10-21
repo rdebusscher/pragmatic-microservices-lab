@@ -27,7 +27,7 @@ public class GraphTraversalService {
 
     @GET
     @Path("/shortest-path")
-    @Produces({"application/json", "application/xml; qs=.75"})
+    @Produces("application/json")
     @Counted(name = "findShortestPath", absolute = true, monotonic = true)
     // TODO Add internationalized messages for constraints.
     public List<TransitPath> findShortestPath(

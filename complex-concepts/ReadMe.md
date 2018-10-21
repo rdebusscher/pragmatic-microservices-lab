@@ -1,38 +1,34 @@
 Complex Microservices Concepts
 ==============================
 This code demonstrates developing advanced/complex microservices including 
-far jars, health, dynamic discovery, containerized deployments as well as cloud 
+fat jars, health, configuration, containerized deployments as well as cloud 
 deployments using Java EE, MicroProfile, Docker and AWS.
 
 Part of this code is used as a demo for 
 [this](https://speakerdeck.com/reza_rahman/down-to-earth-microservices-with-java-ee) talk. A
 video for the talk can be found [here](https://www.youtube.com/watch?v=bS6zKgMb8So).
-The code is derived from the [Cargo Tracker](https://cargotracker.java.net/)
-Java EE blue prints project. 
+The code is derived from the [Cargo Tracker](https://m-reza-rahman.github.io/cargo-tracker/) project.
 
 The overall application is broken up into two logical units - Cargo Tracker and 
-Path Finder. The Cargo Tracker application is a larger Java EE war deployed to
-GlassFish. In microservices parlance the Cargo Tracker application is a so-called 
+Path Finder. The Cargo Tracker application is a larger Java EE war deployed to Payara. 
+In microservices parlance the Cargo Tracker application is a so-called 
 monolith. The Path Finder microservice is developed as a MicroProfile fat jar.
 Cargo Tracker uses the smaller Path Finder microservice.
 
 This code uses Payara Server 5. It should be possible to use any Java EE 8
 compatible application server such as GlassFish, WildFly or WebSphere Liberty.
 
-We use Payara Micro 5.183 as our fat-jar solution. It should be possible to use any 
-other MicroProfile 2.0 compatible runtime such as WildFly Swarm, Thorntail or TomEE.
-We use NetBeans but you can use any Maven capable IDE.
+We use Payara Micro as our fat-jar solution. It should be possible to use any 
+other MicroProfile compatible runtime such as Thorntail. We use NetBeans but 
+you can use any Maven capable IDE.
 
 Setup
 -----
 * Download this directory somewhere into your file system.
-* Make sure you have JDK 8+ installed.
-* Please install NetBeans 8+. Make sure to download the Java EE edition.
-* Download Payara Server 5 from [here](https://www.payara.fish). Make sure to download the 
-full platform, not the web profile.
+* Make sure you have the latest version of JDK 8 installed. Older and newer versions may cause unexpected issues.
+* Please download and install NetBeans 8.2 from [here](https://netbeans.org/downloads/). Make sure to download the Java EE edition. Older and newer versions may cause unexpected issues.
+* Download Payara Server 5 from [here](https://www.payara.fish/downloads).
 * Please unzip the zip file anywhere in your file system.
-* Start NetBeans. Point NetBeans to the updated Maven installation by going to
-NetBeans -> Preferences -> Java -> Maven -> Maven Home. 
 * You now need to setup Payara Server in NetBeans. You do that by going to 
 Services -> Servers -> Add Server -> GlassFish Server. Enter the location of 
 the Payara Server directory. Choose the defaults in the next few screens to register 
@@ -67,10 +63,8 @@ facilities that meet the MicroProfile Health specification. You can check them o
 navigating to <http://localhost:8888/health> and <http://localhost:8888/metrics>. The outcome of the health status is used to report to the discovery mechanism whether the service is healthy and can be accessed.
 * Since Payara Server also supports MicroProfile, metrics are exposed also for the Cargo Tracker application at <http://localhost:8080/health> and <http://localhost:8080/metrics>.
 
-
-Instructions for running with discovery using Consul
-------------
-
+Instructions for Running with Discovery using Consul
+----------------------------------------------------
 * You must start Consul:
 ```
 consul agent -dev

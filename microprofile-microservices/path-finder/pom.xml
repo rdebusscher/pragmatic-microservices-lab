@@ -9,11 +9,12 @@
     <version>1.0</version>
     <packaging>war</packaging>
 
-    <name>FatJar: path-finder</name>
+    <name>path-finder (microprofile-microservices)</name>
 
     <properties>
         <version.payara.micro>5.183</version.payara.micro>
         <version.payara.maven.plugin>1.0.1</version.payara.maven.plugin>
+        <version.docker-maven-plugin>0.24.0</version.docker-maven-plugin>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
         <failOnMissingWebXml>false</failOnMissingWebXml>
@@ -63,6 +64,7 @@
                 <configuration>
                     <payaraVersion>${version.payara.micro}</payaraVersion>
                     <useUberJar>true</useUberJar>
+                    <autoDeployEmptyContextRoot>true</autoDeployEmptyContextRoot>
                 </configuration>
                 <executions>
                     <execution>
@@ -74,5 +76,59 @@
             </plugin>
         </plugins>
     </build>
-        
+
+    <profiles>
+        <profile>
+            <id>docker</id>
+
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>io.fabric8</groupId>
+                        <artifactId>docker-maven-plugin</artifactId>
+                        <version>${version.docker-maven-plugin}</version>
+                        <configuration>
+                            <images>
+                                <image>
+                                    <alias>${project.artifactId}</alias>
+                                    <name>pragmatic-microservices-lab/${project.artifactId}:${project.version}</name>
+                                    <build>
+                                        <maintainer>Ivar Grimstad (ivar.grimstad@gmail.com)</maintainer>
+                                        <from>payara/micro:${version.payara.micro}</from>
+                                        <assembly>
+                                            <basedir>/opt/payara/deployments</basedir>
+                                            <inline>
+                                                <files>
+                                                    <file>
+                                                        <source>${basedir}/target/${project.build.finalName}.war</source>
+                                                        <destName>ROOT.jar</destName>
+                                                    </file>
+                                                </files>
+                                            </inline>
+                                        </assembly>
+                                        <entryPoint>
+                                            <arg>java</arg>
+                                            <arg>-jar</arg>
+                                            <arg>/opt/payara/payara-micro.jar</arg>
+                                            <arg>--deploymentDir</arg>
+                                            <arg>/opt/payara/deployments</arg>
+                                        </entryPoint>
+                                    </build>
+                                </image>
+                            </images>
+                        </configuration>
+                        <executions>
+                            <execution>
+                                <phase>package</phase>
+                                <goals>
+                                    <goal>build</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
+
 </project>
