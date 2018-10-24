@@ -38,11 +38,12 @@ public class ServiceAdvertizer {
 
     public void refreshAdvertisement(ServiceAdvertisement advertisement) {
         try {
-            ConsulClient.build().agentClient().checkTtl(
-                    idFromAdvert(advertisement),
-                    serviceHealth.isInHealthyState() ? State.PASS : State.FAIL,
+            boolean inHealthyState = serviceHealth.isInHealthyState();
+            ConsulClient.build().agentClient().checkTtl(idFromAdvert(advertisement),
+                    inHealthyState ? State.PASS : State.FAIL,
                     null
             );
+            Logger.getLogger(ServiceAdvertizer.class.getName()).log(Level.INFO, "Sending ping to consul, service health: " + inHealthyState);
         } catch (NotRegisteredException ex) {
             Logger.getLogger(ServiceAdvertizer.class.getName()).log(Level.SEVERE, null, ex);
             throw new RuntimeException(ex);
