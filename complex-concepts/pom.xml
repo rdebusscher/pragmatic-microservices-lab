@@ -15,4 +15,9 @@
         <module>consul-discovery</module>
         <module>jcache-discovery</module>
     </modules>
+    <profiles>
+        <profile>
+            <id>consul-discovery</id>
+        </profile>
+    </profiles>
 </project>

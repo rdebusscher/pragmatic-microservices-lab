@@ -29,6 +29,7 @@ Setup
 * Please download and install NetBeans 8.2 from [here](https://netbeans.org/downloads/). Make sure to download the Java EE edition. Older and newer versions may cause unexpected issues.
 * Download Payara Server 5 from [here](https://www.payara.fish/downloads).
 * Please unzip the zip file anywhere in your file system.
+* optionally, download and install Consul to try out Consul-based service discovery later: https://www.consul.io/
 * You now need to setup Payara Server in NetBeans. You do that by going to 
 Services -> Servers -> Add Server -> GlassFish Server. Enter the location of 
 the Payara Server directory. Choose the defaults in the next few screens to register 
