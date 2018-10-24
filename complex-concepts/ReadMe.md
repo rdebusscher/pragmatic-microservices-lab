@@ -80,6 +80,7 @@ mvn -Pconsul-discovery clean install
 ```
 
 * Continue with the instructions for running with discovery over Payara datagrid
+* You may observe that the pathfinder service is registered in Consul: http://localhost:8500
 
 Advanced patterns using MicroProfile
 ------------------------------------

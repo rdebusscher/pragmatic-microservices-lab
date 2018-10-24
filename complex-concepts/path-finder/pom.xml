@@ -71,6 +71,39 @@
                     <version>${project.version}</version>
                 </dependency>
             </dependencies>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.codehaus.mojo</groupId>
+                        <artifactId>properties-maven-plugin</artifactId>
+                        <version>1.0.0</version>
+                        <executions>
+                            <execution>
+                                <goals>
+                                    <goal>set-system-properties</goal>
+                                </goals>
+                                <phase>package</phase>
+                                <configuration>
+                                    <properties>
+                                        <property>
+                                            <name>payaramicro.nocluster</name>
+                                            <value>true</value>
+                                        </property>
+                                        <property>
+                                            <name>payaramicro.port</name>
+                                            <value>8888</value>
+                                        </property>
+                                        <property>
+                                            <name>payaramicro.autoBindHttp</name>
+                                            <value>true</value>
+                                        </property>
+                                    </properties>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
         </profile>
     </profiles>
 
