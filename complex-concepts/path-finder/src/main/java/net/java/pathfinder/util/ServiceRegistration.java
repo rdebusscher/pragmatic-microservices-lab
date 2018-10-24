@@ -2,6 +2,7 @@ package net.java.pathfinder.util;
 
 import fish.payara.micro.PayaraMicro;
 import java.util.concurrent.TimeUnit;
+import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.annotation.PostConstruct;
 import javax.annotation.Resource;
@@ -34,7 +35,11 @@ public class ServiceRegistration {
                 .withName("pathfinder")
                 .withPort(port)
                 .withContextRoot(context.getContextPath());
-        advertizer.advertize(advert, scheduler);
+        try {
+        	advertizer.advertize(advert, scheduler);
+        } catch (RuntimeException e) {
+        	Logger.getLogger(this.getClass().getName()).log(Level.WARNING, "Is consul running?", e);
+        }
         
         scheduler.scheduleAtFixedRate(() -> {
             Logger.getLogger(this.getClass().getName()).info(() -> {
