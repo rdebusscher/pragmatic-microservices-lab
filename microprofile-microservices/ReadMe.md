@@ -60,8 +60,7 @@ routing by Cargo Tracker.
 
 Running with Docker (Optional)
 ------------------------------
-You can optionally run the path finder application using Docker. Note, we will cover
-Docker in greater detail in the [complex-concepts](../complex-concepts) section of the lab.
+You can optionally run the path finder application using Docker.
 
 You can first build a Docker image by issuing:
 ```
