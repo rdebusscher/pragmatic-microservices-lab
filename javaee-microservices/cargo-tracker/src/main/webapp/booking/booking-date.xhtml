@@ -43,9 +43,9 @@
                             <hr/>   
 
                             <h:panelGrid columns="5" styleClass="registrationPanelGrid" style="margin: 0 auto;">
-                                <p:commandButton value="Back" action="booking-destination" />
-                                <p:commandButton value="Cancel" action="/admin/dashboard" />
-                                <p:commandButton value="Book Cargo" id="bookBtn" action="#{bookingBackingBean.register()}" disabled="#{!bookingBackingBean.bookable}"/>
+                                <p:commandButton value="Back" action="booking-destination" ajax="false" />
+                                <p:commandButton value="Cancel" action="/admin/dashboard" ajax="false"/>
+                                <p:commandButton value="Book Cargo" id="bookBtn" action="#{bookingBackingBean.register()}" disabled="#{!bookingBackingBean.bookable}" ajax="false"/>
                             </h:panelGrid>
 
                         </h:form>
