@@ -1,20 +1,21 @@
 package net.java.cargotracker.interfaces.booking.web;
 
+import org.primefaces.context.RequestContext;
+import org.primefaces.event.SelectEvent;
+
+import javax.enterprise.context.SessionScoped;
+import javax.inject.Named;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.SessionScoped;
-import org.primefaces.context.RequestContext;
-import org.primefaces.event.SelectEvent;
 
 /**
  *
  * @author davidd
  */
-@ManagedBean(name = "changeDestinationDialog")
+@Named
 @SessionScoped
 public class ChangeDestinationDialog implements Serializable {
 

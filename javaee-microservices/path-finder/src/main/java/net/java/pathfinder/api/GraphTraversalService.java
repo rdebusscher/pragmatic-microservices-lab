@@ -1,9 +1,7 @@
 package net.java.pathfinder.api;
 
-import java.util.*;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.ejb.Stateless;
+import net.java.pathfinder.internal.GraphDao;
+
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import javax.validation.constraints.NotNull;
@@ -12,7 +10,9 @@ import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
-import net.java.pathfinder.internal.GraphDao;
+import java.util.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 @ApplicationScoped
 @Path("/graph-traversal")

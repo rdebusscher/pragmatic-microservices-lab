@@ -1,12 +1,8 @@
 package net.java.cargotracker.domain.model.voyage;
 
 import java.lang.reflect.Field;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
+
 import static net.java.cargotracker.application.util.DateUtil.toDate;
 import net.java.cargotracker.domain.model.location.Location;
 import static net.java.cargotracker.domain.model.location.SampleLocations.CHICAGO;
@@ -36,8 +32,8 @@ public class SampleVoyages {
 
     private static Voyage createVoyage(String id, Location from, Location to) {
         return new Voyage(new VoyageNumber(id),
-                new Schedule(Arrays.asList(new CarrierMovement(from, to,
-                                        new Date(), new Date()))));
+                new Schedule(Collections.singletonList(new CarrierMovement(from, to,
+                        new Date(), new Date()))));
     }
 
     public final static Voyage v100 = new Voyage.Builder(
@@ -127,7 +123,7 @@ public class SampleVoyages {
                     toDate("2013-11-22", "16:40"))
             .addMovement(HONGKONG, toDate("2013-11-24", "07:00"),
                     toDate("2013-11-28", "13:37")).build();
-    public static final Map<VoyageNumber, Voyage> ALL = new HashMap();
+    public static final Map<VoyageNumber, Voyage> ALL = new HashMap<>();
 
     static {
         for (Field field : SampleVoyages.class.getDeclaredFields()) {
@@ -143,7 +139,7 @@ public class SampleVoyages {
     }
 
     public static List<Voyage> getAll() {
-        return new ArrayList(ALL.values());
+        return new ArrayList<>(ALL.values());
     }
 
     public static Voyage lookup(VoyageNumber voyageNumber) {

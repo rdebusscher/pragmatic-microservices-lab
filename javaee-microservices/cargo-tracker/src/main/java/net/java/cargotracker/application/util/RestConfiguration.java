@@ -14,9 +14,8 @@ public class RestConfiguration extends ResourceConfig {
 
     public RestConfiguration() {
         // Resources
-        packages(new String[]{
-            HandlingReportService.class.getPackage().getName(),
-            CargoMonitoringService.class.getPackage().getName()});
+        packages(HandlingReportService.class.getPackage().getName(),
+                CargoMonitoringService.class.getPackage().getName());
         // Enable Bean Validation error messages.
         property(ServerProperties.BV_SEND_ERROR_IN_RESPONSE, true);
     }

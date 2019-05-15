@@ -71,7 +71,7 @@ public class Registration implements Serializable {
     }
 
     public String register() {
-        String trackingId = null;
+        String trackingId;
 
         try {
             if (!originUnlocode.equals(destinationUnlocode)) {

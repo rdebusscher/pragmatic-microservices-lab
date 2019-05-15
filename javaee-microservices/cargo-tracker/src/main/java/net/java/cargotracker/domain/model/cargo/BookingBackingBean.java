@@ -160,11 +160,7 @@ public class BookingBackingBean implements Serializable{
 
     public void deadlineUpdated() {
         duration = computeDuration(arrivalDeadline);
-        if (duration >= MIN_JOURNEY_DURATION) {
-            bookable = true;
-        } else {
-            bookable = false;
-        }
+        bookable = duration >= MIN_JOURNEY_DURATION;
         RequestContext.getCurrentInstance().update("dateForm:durationPanel");
         RequestContext.getCurrentInstance().update("dateForm:bookBtn");
     }

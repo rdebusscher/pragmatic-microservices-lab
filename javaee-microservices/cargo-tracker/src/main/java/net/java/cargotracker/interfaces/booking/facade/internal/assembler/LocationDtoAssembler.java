@@ -23,17 +23,7 @@ public class LocationDtoAssembler {
             dtoList.add(toDto(location));
         }
 
-        Collections.sort(
-                dtoList,
-                new Comparator<net.java.cargotracker.interfaces.booking.facade.dto.Location>() {
-
-                    @Override
-                    public int compare(
-                            net.java.cargotracker.interfaces.booking.facade.dto.Location location1,
-                            net.java.cargotracker.interfaces.booking.facade.dto.Location location2) {
-                                return location1.getName().compareTo(location2.getName());
-                            }
-                });
+        dtoList.sort(Comparator.comparing(net.java.cargotracker.interfaces.booking.facade.dto.Location::getName));
 
         return dtoList;
     }
