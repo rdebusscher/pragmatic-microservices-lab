@@ -6,7 +6,6 @@ import java.util.List;
 import javax.enterprise.context.ApplicationScoped;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import net.java.cargotracker.domain.model.location.Location;
 
 import net.java.cargotracker.domain.model.voyage.Voyage;
 import net.java.cargotracker.domain.model.voyage.VoyageNumber;

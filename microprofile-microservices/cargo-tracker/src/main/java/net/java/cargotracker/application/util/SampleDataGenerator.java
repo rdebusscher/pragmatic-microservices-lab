@@ -1,6 +1,7 @@
 package net.java.cargotracker.application.util;
 
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 import java.util.logging.Logger;
@@ -243,7 +244,7 @@ public class SampleDataGenerator {
         Cargo mno456 = new Cargo(trackingId4, routeSpecification4);
 
         Itinerary itinerary4 = new Itinerary(
-                Arrays.asList(
+                Collections.singletonList(
                         new Leg(SampleVoyages.NEW_YORK_TO_DALLAS,
                                 SampleLocations.NEWYORK,
                                 SampleLocations.DALLAS,

@@ -10,6 +10,6 @@ public interface CargoInspectionService {
      * example if a cargo has been misdirected, or unloaded at the final
      * destination.
      */
-    public void inspectCargo(
+    void inspectCargo(
             @NotNull(message = "Tracking ID is required") TrackingId trackingId);
 }

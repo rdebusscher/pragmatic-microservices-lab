@@ -5,8 +5,9 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.SessionScoped;
+import javax.enterprise.context.SessionScoped;
+import javax.inject.Named;
+
 import org.primefaces.context.RequestContext;
 import org.primefaces.event.SelectEvent;
 
@@ -14,7 +15,7 @@ import org.primefaces.event.SelectEvent;
  *
  * @author davidd
  */
-@ManagedBean(name = "changeDestinationDialog")
+@Named
 @SessionScoped
 public class ChangeDestinationDialog implements Serializable {
 
