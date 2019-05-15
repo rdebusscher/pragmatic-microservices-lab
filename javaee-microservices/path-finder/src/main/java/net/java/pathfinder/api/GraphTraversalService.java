@@ -4,6 +4,7 @@ import java.util.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.ejb.Stateless;
+import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -13,7 +14,7 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
 import net.java.pathfinder.internal.GraphDao;
 
-@Stateless
+@ApplicationScoped
 @Path("/graph-traversal")
 public class GraphTraversalService {
 
