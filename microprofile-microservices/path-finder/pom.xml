@@ -12,7 +12,7 @@
     <name>path-finder (microprofile-microservices)</name>
 
     <properties>
-        <version.payara.micro>5.183</version.payara.micro>
+        <version.payara.micro>5.191</version.payara.micro>
         <version.payara.maven.plugin>1.0.1</version.payara.maven.plugin>
         <version.docker-maven-plugin>0.24.0</version.docker-maven-plugin>
         <maven.compiler.source>1.8</maven.compiler.source>
@@ -52,6 +52,10 @@
                                     <name>payaramicro.port</name>
                                     <value>8888</value>
                                 </property>
+                                <property>
+                                    <name>payaramicro.noCluster</name>
+                                    <value>true</value>
+                                </property>
                             </properties>
                         </configuration>
                     </execution>
@@ -68,6 +72,7 @@
                 </configuration>
                 <executions>
                     <execution>
+                        <phase>package</phase>
                         <goals>
                             <goal>bundle</goal>
                         </goals>
