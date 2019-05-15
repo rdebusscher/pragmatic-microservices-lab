@@ -14,7 +14,7 @@ public class HandlingHistory {
     private final List<HandlingEvent> handlingEvents;
     // Null object pattern.
     public static final HandlingHistory EMPTY = new HandlingHistory(
-            Collections.<HandlingEvent>emptyList());
+            Collections.emptyList());
 
     public HandlingHistory(Collection<HandlingEvent> handlingEvents) {
         Validate.notNull(handlingEvents, "Handling events are required");

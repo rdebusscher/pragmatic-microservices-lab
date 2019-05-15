@@ -1,12 +1,8 @@
 package net.java.cargotracker.domain.model.voyage;
 
 import java.lang.reflect.Field;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
+
 import static net.java.cargotracker.application.util.DateUtil.toDate;
 import net.java.cargotracker.domain.model.location.Location;
 import static net.java.cargotracker.domain.model.location.SampleLocations.CHICAGO;
@@ -36,8 +32,8 @@ public class SampleVoyages {
 
     private static Voyage createVoyage(String id, Location from, Location to) {
         return new Voyage(new VoyageNumber(id),
-                new Schedule(Arrays.asList(new CarrierMovement(from, to,
-                                        new Date(), new Date()))));
+                new Schedule(Collections.singletonList(new CarrierMovement(from, to,
+                        new Date(), new Date()))));
     }
 
     public final static Voyage v100 = new Voyage.Builder(

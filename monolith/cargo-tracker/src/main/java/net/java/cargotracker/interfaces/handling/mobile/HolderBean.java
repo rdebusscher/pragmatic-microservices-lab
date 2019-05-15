@@ -2,8 +2,6 @@ package net.java.cargotracker.interfaces.handling.mobile;
 
 //import javax.faces.bean.SessionScoped;
 import java.io.Serializable;
-import javax.enterprise.context.ApplicationScoped;
-import javax.enterprise.context.RequestScoped;
 import javax.enterprise.context.SessionScoped;
 import javax.faces.context.FacesContext;
 import javax.faces.flow.FlowHandler;

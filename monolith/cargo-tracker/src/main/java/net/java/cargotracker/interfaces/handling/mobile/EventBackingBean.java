@@ -190,7 +190,6 @@ public class EventBackingBean implements Serializable {
         } else {
             this.voyageNumber = null;
             loadEventCondition = true;
-            voyageSelectable = false;
         }
         checkConditions();
         //RequestContext.getCurrentInstance().update("firstForm:panelVoyage,:firstScreen:nextBtn");
@@ -198,7 +197,7 @@ public class EventBackingBean implements Serializable {
 
     public void checkConditions() {
         //If event = LOAD or UNLOAD -> Voyage should be null
-        if (trackId != null && eventType != null && location != null && (eventType != null && loadEventCondition)) {
+        if (trackId != null && eventType != null && location != null && loadEventCondition) {
             // All condition are Ok, Next screen button can be enable
             inputsOk = true;
             RequestContext.getCurrentInstance().update("firstForm:panelVoyage,:firstScreen:nextBtn");

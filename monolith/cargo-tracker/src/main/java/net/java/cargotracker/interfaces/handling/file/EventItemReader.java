@@ -101,7 +101,7 @@ public class EventItemReader extends AbstractItemReader {
             throw new EventLineParseException("Wrong number of data elements", line);
         }
 
-        Date completionTime = null;
+        Date completionTime;
 
         try {
             completionTime = new SimpleDateFormat(ISO_8601_FORMAT).parse(result[0]);
@@ -109,7 +109,7 @@ public class EventItemReader extends AbstractItemReader {
             throw new EventLineParseException("Cannot parse completion time", e, line);
         }
 
-        TrackingId trackingId = null;
+        TrackingId trackingId;
 
         try {
             trackingId = new TrackingId(result[1]);
@@ -127,7 +127,7 @@ public class EventItemReader extends AbstractItemReader {
             throw new EventLineParseException("Cannot parse voyage number", e, line);
         }
 
-        UnLocode unLocode = null;
+        UnLocode unLocode;
 
         try {
             unLocode = new UnLocode(result[3]);
@@ -135,7 +135,7 @@ public class EventItemReader extends AbstractItemReader {
             throw new EventLineParseException("Cannot parse UN location code", e, line);
         }
 
-        HandlingEvent.Type eventType = null;
+        HandlingEvent.Type eventType;
 
         try {
             eventType = HandlingEvent.Type.valueOf(result[4]);
