@@ -70,3 +70,10 @@ To run path finder using Docker you will need to run:
 ```
 docker run -it -p 8888:8080 pragmatic-microservices-lab/path-finder:1.0
 ```
+
+
+Things to look at
+-----
+
+* net.java.cargotracker.infrastructure.routing.ExternalRoutingService calls the Micro-Service
+* Add MicroProfile specification and use MP Config And MP Rest Client within Cargo Tracker to call Micro-Service
